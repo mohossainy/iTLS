@@ -9,14 +9,13 @@
     
     <style>
         :root { --main-blue: #0D203D; --main-orange: #B35B2D; --dark-overlay: rgba(13, 32, 61, 0.85); }
-        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #fff; scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
 
         /* Navbar */
         .navbar { background: #fff !important; padding: 10px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-bottom: 4px solid var(--main-blue); }
         .navbar-brand img { height: 80px; width: auto; }
-        .nav-link { font-weight: 800; color: var(--main-blue) !important; text-transform: uppercase; margin: 0 15px; font-size: 0.85rem; }
 
-        /* Hero - Title Optimized */
+        /* Hero */
         .hero { 
             background: linear-gradient(var(--dark-overlay), var(--dark-overlay)), 
             url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1600&q=80');
@@ -24,12 +23,7 @@
             color: white; padding: 120px 0; text-align: center;
         }
         .itls-title { font-size: 5rem; color: var(--main-orange); font-weight: 900; display: block; line-height: 1; margin-bottom: 10px; text-transform: none; }
-        .hero h2 { font-size: 2.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-top: 0; }
-
-        /* About Section - THE MISSING PIECE */
-        .about-section { padding: 90px 0; background: #fff; text-align: center; }
-        .orange-line { width: 70px; height: 5px; background: var(--main-orange); border: none; margin: 25px auto; opacity: 1; }
-        .about-text { font-size: 1.2rem; line-height: 1.8; color: #555; max-width: 900px; margin: 0 auto; }
+        .hero h2 { font-size: 2.8rem; font-weight: 800; text-transform: uppercase; margin-top: 0; }
 
         /* Services Grid */
         .services-section { padding: 80px 0; background: #f8f9fa; }
@@ -38,20 +32,17 @@
             overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             transition: 0.4s ease; cursor: pointer;
         }
-        .service-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: 0.6s; z-index: 1; }
-        .service-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(13,32,61,0.2), rgba(13,32,61,0.9)); z-index: 2; transition: 0.3s; }
-        .service-content { position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; color: white; text-align: left; }
+        .service-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: 1; transition: 0.6s; }
+        .service-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(13,32,61,0.2), rgba(13,32,61,0.9)); z-index: 2; }
+        .service-content { position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; color: white; }
         .service-icon { font-size: 2rem; color: var(--main-orange); margin-bottom: 10px; }
         .service-container:hover .service-bg { transform: scale(1.1); }
         .service-container:hover .service-overlay { background: rgba(179, 91, 45, 0.85); }
 
-        /* Buttons */
-        .btn-quote { background: var(--main-orange); color: white; border-radius: 50px; font-weight: 800; border: none; padding: 12px 35px; transition: 0.3s; text-decoration: none; display: inline-block; }
-        .btn-quote:hover { background: #8e4722; transform: translateY(-3px); color: white; }
-
-        /* Footer */
-        footer { padding: 40px 0; background: #fff; text-align: center; border-top: 1px solid #eee; }
-        .footer-logo { height: 70px; margin-bottom: 10px; }
+        /* Modal Styling */
+        .modal-header { background: var(--main-blue); color: white; border-bottom: 4px solid var(--main-orange); }
+        .btn-submit { background: var(--main-orange); color: white; font-weight: 800; border-radius: 50px; border: none; padding: 12px 30px; width: 100%; transition: 0.3s; }
+        .btn-submit:hover { background: #8e4722; }
     </style>
 </head>
 <body>
@@ -61,11 +52,10 @@
             <a class="navbar-brand" href="#"><img src="tls logo.png" alt="iTLS Logo"></a>
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="font-weight:800; color:var(--main-blue)!important; text-transform:uppercase;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services" style="font-weight:800; color:var(--main-blue)!important; text-transform:uppercase;">Services</a></li>
                 </ul>
-                <button class="btn btn-quote" data-bs-toggle="modal" data-bs-target="#quoteModal">GET A QUOTE</button>
+                <button class="btn" style="background:var(--main-orange); color:white; border-radius:50px; font-weight:800;" data-bs-toggle="modal" data-bs-target="#quoteModal">GET A QUOTE</button>
             </div>
         </div>
     </nav>
@@ -74,58 +64,86 @@
         <div class="container">
             <span class="itls-title">iTLS</span>
             <h2>INTEGRATED<br>TRADING & LOGISTICS SOLUTIONS</h2>
-            <p class="lead mt-3 fw-bold opacity-75">Connecting Global Markets with Precision.</p>
-            <button class="btn btn-quote btn-lg mt-4 px-5" data-bs-toggle="modal" data-bs-target="#quoteModal">REQUEST A QUOTE NOW</button>
+            <button class="btn btn-lg mt-4 px-5 py-3 shadow" style="background:var(--main-orange); color:white; border-radius:50px; font-weight:800;" data-bs-toggle="modal" data-bs-target="#quoteModal">REQUEST A QUOTE NOW</button>
         </div>
     </header>
 
-    <section id="about" class="about-section">
-        <div class="container">
-            <h3 class="fw-bold text-uppercase" style="color:var(--main-blue)">The <span style="color:var(--main-orange); text-transform:none;">iTLS</span> Advantage</h3>
-            <hr class="orange-line">
-            <p class="about-text">
-                At <span class="fw-bold" style="color:var(--main-blue)">iTLS</span>, we don’t just move cargo; we integrate trade. By combining world-class logistics with strategic trading intelligence, we provide seamless, end-to-end supply chain solutions that empower your business to navigate the complexities of the global economy with ease and precision.
-            </p>
-        </div>
-    </section>
-
     <section id="services" class="services-section">
-        <div class="container">
-            <h3 class="text-center fw-bold text-uppercase mb-5" style="color:var(--main-blue); letter-spacing: 2px;">Core Expertise</h3>
+        <div class="container text-center">
+            <h3 class="fw-bold text-uppercase mb-5" style="color:var(--main-blue)">Core Expertise</h3>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal">
                     <div class="service-container">
                         <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=800&q=80');"></div>
                         <div class="service-overlay"></div>
-                        <div class="service-content">
+                        <div class="service-content text-start">
                             <i class="fas fa-plane service-icon"></i>
                             <h5 class="fw-bold m-0 text-white">AIR FREIGHT</h5>
-                            <p class="small opacity-75 m-0 text-white">Next-flight-out global solutions.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal">
                     <div class="service-container">
                         <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=800&q=80');"></div>
                         <div class="service-overlay"></div>
-                        <div class="service-content">
+                        <div class="service-content text-start">
                             <i class="fas fa-ship service-icon"></i>
                             <h5 class="fw-bold m-0 text-white">OCEAN FREIGHT</h5>
-                            <p class="small opacity-75 m-0 text-white">Reliable FCL & LCL transport.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal">
                     <div class="service-container">
                         <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80');"></div>
                         <div class="service-overlay"></div>
-                        <div class="service-content">
+                        <div class="service-content text-start">
                             <i class="fas fa-truck service-icon"></i>
                             <h5 class="fw-bold m-0 text-white">LAND FREIGHT</h5>
-                            <p class="small opacity-75 m-0 text-white">Precision cross-border trucking.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal">
                     <div class="service-container">
-                        <div class="service-bg" style="background-image: url('
+                        <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1559139225-421502da1307?auto=format&fit=crop&w=800&q=80');"></div>
+                        <div class="service-overlay"></div>
+                        <div class="service-content text-start">
+                            <i class="fas fa-anchor service-icon"></i>
+                            <h5 class="fw-bold m-0 text-white">VESSEL CHARTERS</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">REQUEST A QUOTE</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-6"><label class="form-label fw-bold">Name</label><input type="text" name="name" class="form-control" required></div>
+                            <div class="col-md-6"><label class="form-label fw-bold">Email</label><input type="email" name="email" class="form-control" required></div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Service</label>
+                                <select name="service" class="form-select">
+                                    <option>Air Freight</option><option>Ocean Freight</option><option>Land Freight</option><option>Vessel Charter</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6"><label class="form-label fw-bold">Destination</label><input type="text" name="dest" class="form-control"></div>
+                            <div class="col-md-12"><label class="form-label fw-bold">Message</label><textarea name="msg" class="form-control" rows="3"></textarea></div>
+                            <div class="col-md-12 text-center mt-4"><button type="submit" class="btn-submit">SEND REQUEST</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
