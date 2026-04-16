@@ -23,8 +23,10 @@
             background-size: cover; background-position: center;
             color: white; padding: 140px 0; text-align: center;
         }
+        .hero h1 { font-weight: 800; }
+        .itls-brand { color: var(--main-orange); text-transform: none; } /* لضمان ظهور iTLS بالشكل الصحيح */
 
-        /* Services Cards with Images */
+        /* Services Cards */
         .services-section { padding: 100px 0; background: #f4f7f9; }
         .service-container {
             position: relative; height: 380px; border-radius: 20px;
@@ -55,7 +57,7 @@
 
         /* Modal Form */
         .modal-header { background: var(--main-blue); color: white; border-bottom: 4px solid var(--main-orange); }
-        .btn-submit { background: var(--main-orange); color: white; font-weight: 800; border-radius: 50px; border: none; padding: 12px 30px; transition: 0.3s; }
+        .btn-submit { background: var(--main-orange); color: white; font-weight: 800; border-radius: 50px; border: none; padding: 12px 30px; }
 
         /* Footer */
         footer { padding: 60px 0; background: #fff; border-top: 1px solid #eee; text-align: center; }
@@ -83,7 +85,7 @@
 
     <header class="hero">
         <div class="container">
-            <h1 class="display-4 fw-bold text-uppercase">iTLS: <span style="color:var(--main-orange)">Integrated</span><br>Trading & Logistics Solutions</h1>
+            <h1 class="display-4 fw-bold"><span class="itls-brand">iTLS</span>: INTEGRATED<br>TRADING & LOGISTICS SOLUTIONS</h1>
             <p class="lead mt-3 fw-bold">Connecting Global Markets with Precision.</p>
             <button class="btn btn-lg mt-4 px-5 py-3 shadow" style="background:var(--main-orange); color:white; border-radius:50px; font-weight:800;" data-bs-toggle="modal" data-bs-target="#quoteModal">REQUEST A QUOTE NOW</button>
         </div>
@@ -91,11 +93,11 @@
 
     <section id="about" class="about-section">
         <div class="container">
-            <h2 class="fw-bold text-uppercase">The <span style="color:var(--main-orange)">iTLS</span> Advantage</h2>
+            <h2 class="fw-bold text-uppercase">The <span style="color:var(--main-orange); text-transform:none;">iTLS</span> Advantage</h2>
             <hr class="orange-line">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <p class="lead text-muted">We don’t just move cargo; we integrate trade. iTLS combines world-class logistics with strategic trading intelligence to provide seamless, end-to-end supply chain solutions that empower your business to scale globally.</p>
+                    <p class="lead text-muted">We don’t just move cargo; we integrate trade. <span class="fw-bold" style="color:var(--main-blue)">iTLS</span> combines world-class logistics with strategic trading intelligence to provide seamless, end-to-end supply chain solutions that empower your business to scale globally.</p>
                 </div>
             </div>
         </div>
@@ -103,7 +105,7 @@
 
     <section id="services" class="services-section">
         <div class="container text-center">
-            <h2 class="fw-bold text-uppercase mb-5" style="color:var(--main-blue)">Core <span style="color:var(--main-orange)">Expertise</span></h2>
+            <h2 class="fw-bold text-uppercase mb-5" style="color:var(--main-blue)">Core Expertise</h2>
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="service-container">
@@ -184,7 +186,7 @@
     <footer>
         <div class="container">
             <img src="tls logo.png" class="footer-logo" alt="iTLS Logo">
-            <p class="fw-bold text-muted small text-uppercase">Integrated Trading and Logistics Solutions</p>
+            <p class="fw-bold text-muted small"><span style="text-transform:none;">iTLS</span> - INTEGRATED TRADING AND LOGISTICS SOLUTIONS</p>
             <p class="small text-secondary">© 2026 iTLS. All Rights Reserved.</p>
         </div>
     </footer>
