@@ -9,11 +9,12 @@
     
     <style>
         :root { --main-blue: #0D203D; --main-orange: #B35B2D; --dark-overlay: rgba(13, 32, 61, 0.85); }
-        body { font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
 
         /* Navbar */
         .navbar { background: #fff !important; padding: 10px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-bottom: 4px solid var(--main-blue); }
         .navbar-brand img { height: 80px; width: auto; }
+        .nav-link { font-weight: 800; color: var(--main-blue) !important; text-transform: uppercase; margin: 0 15px; }
 
         /* Hero */
         .hero { 
@@ -24,6 +25,11 @@
         }
         .itls-title { font-size: 5rem; color: var(--main-orange); font-weight: 900; display: block; line-height: 1; margin-bottom: 10px; text-transform: none; }
         .hero h2 { font-size: 2.8rem; font-weight: 800; text-transform: uppercase; margin-top: 0; }
+
+        /* About Section */
+        .about-section { padding: 80px 0; background: #fff; text-align: center; }
+        .orange-line { width: 60px; height: 5px; background: var(--main-orange); border: none; margin: 20px auto; opacity: 1; }
+        .about-text { font-size: 1.2rem; line-height: 1.8; color: #555; max-width: 850px; margin: 0 auto; }
 
         /* Services Grid */
         .services-section { padding: 80px 0; background: #f8f9fa; }
@@ -39,10 +45,13 @@
         .service-container:hover .service-bg { transform: scale(1.1); }
         .service-container:hover .service-overlay { background: rgba(179, 91, 45, 0.85); }
 
-        /* Modal Styling */
+        /* Modal & Form */
         .modal-header { background: var(--main-blue); color: white; border-bottom: 4px solid var(--main-orange); }
-        .btn-submit { background: var(--main-orange); color: white; font-weight: 800; border-radius: 50px; border: none; padding: 12px 30px; width: 100%; transition: 0.3s; }
-        .btn-submit:hover { background: #8e4722; }
+        .btn-submit { background: var(--main-orange); color: white; font-weight: 800; border-radius: 50px; border: none; padding: 12px 30px; width: 100%; }
+
+        /* Footer */
+        footer { padding: 40px 0; background: #fff; text-align: center; border-top: 1px solid #eee; }
+        .footer-logo { height: 70px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -50,12 +59,16 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="tls logo.png" alt="iTLS Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="#" style="font-weight:800; color:var(--main-blue)!important; text-transform:uppercase;">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services" style="font-weight:800; color:var(--main-blue)!important; text-transform:uppercase;">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                 </ul>
-                <button class="btn" style="background:var(--main-orange); color:white; border-radius:50px; font-weight:800;" data-bs-toggle="modal" data-bs-target="#quoteModal">GET A QUOTE</button>
+                <button class="btn px-4" style="background:var(--main-orange); color:white; border-radius:50px; font-weight:800;" data-bs-toggle="modal" data-bs-target="#quoteModal">GET A QUOTE</button>
             </div>
         </div>
     </nav>
@@ -68,11 +81,21 @@
         </div>
     </header>
 
+    <section id="about" class="about-section">
+        <div class="container">
+            <h3 class="fw-bold text-uppercase" style="color:var(--main-blue)">The <span style="color:var(--main-orange); text-transform:none;">iTLS</span> Advantage</h3>
+            <hr class="orange-line">
+            <p class="about-text">
+                At <span class="fw-bold" style="color:var(--main-blue)">iTLS</span>, we don’t just move cargo; we integrate trade. By combining world-class logistics with strategic trading intelligence, we provide seamless, end-to-end supply chain solutions that empower your business to scale globally with ease and precision.
+            </p>
+        </div>
+    </section>
+
     <section id="services" class="services-section">
         <div class="container text-center">
             <h3 class="fw-bold text-uppercase mb-5" style="color:var(--main-blue)">Core Expertise</h3>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal" style="cursor:pointer">
                     <div class="service-container">
                         <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=800&q=80');"></div>
                         <div class="service-overlay"></div>
@@ -82,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal" style="cursor:pointer">
                     <div class="service-container">
                         <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=800&q=80');"></div>
                         <div class="service-overlay"></div>
@@ -92,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal" style="cursor:pointer">
                     <div class="service-container">
                         <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80');"></div>
                         <div class="service-overlay"></div>
@@ -102,7 +125,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                <div class="col-lg-3 col-md-6" data-bs-toggle="modal" data-bs-target="#quoteModal" style="cursor:pointer">
                     <div class="service-container">
                         <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1559139225-421502da1307?auto=format&fit=crop&w=800&q=80');"></div>
                         <div class="service-overlay"></div>
@@ -136,13 +159,21 @@
                             </div>
                             <div class="col-md-6"><label class="form-label fw-bold">Destination</label><input type="text" name="dest" class="form-control"></div>
                             <div class="col-md-12"><label class="form-label fw-bold">Message</label><textarea name="msg" class="form-control" rows="3"></textarea></div>
-                            <div class="col-md-12 text-center mt-4"><button type="submit" class="btn-submit">SEND REQUEST</button></div>
+                            <div class="col-md-12 text-center mt-4"><button type="submit" class="btn-submit shadow">SEND REQUEST</button></div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="container text-center">
+            <img src="tls logo.png" class="footer-logo" alt="iTLS Logo">
+            <p class="fw-bold text-muted small m-0">iTLS - INTEGRATED TRADING AND LOGISTICS SOLUTIONS</p>
+            <p class="text-secondary small">© 2026 iTLS. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
