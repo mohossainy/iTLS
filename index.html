@@ -10,47 +10,48 @@
             --main-blue: #0D203D; 
             --main-orange: #B35B2D; 
         }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #fff; }
         
         /* Navigation */
-        .navbar { padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
+        .navbar { padding: 15px 0; border-bottom: 1px solid #f0f0f0; background: white !important; }
         .nav-link { font-weight: 600; color: #333 !important; text-transform: uppercase; margin: 0 10px; font-size: 0.9rem; }
-        .nav-link:hover { color: var(--main-orange) !important; }
-        .btn-quote { background-color: var(--main-orange); color: white !important; border-radius: 25px; padding: 8px 25px; font-weight: bold; border: none; }
+        .btn-quote { background-color: var(--main-orange); color: white !important; border-radius: 25px; padding: 10px 25px; font-weight: bold; border: none; text-decoration: none; }
 
         /* Hero Section */
         .hero { 
             background: linear-gradient(rgba(13, 32, 61, 0.75), rgba(13, 32, 61, 0.75)), 
             url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1350&q=80');
             background-size: cover; background-position: center;
-            color: white; padding: 140px 0; text-align: center;
+            color: white; padding: 160px 0; text-align: center;
         }
-        .hero h1 { font-weight: 800; font-size: 3.2rem; line-height: 1.2; max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-weight: 800; font-size: 3.5rem; line-height: 1.1; max-width: 900px; margin: 0 auto; text-transform: uppercase; }
         .orange-text { color: var(--main-orange); }
-        .btn-track { background-color: var(--main-orange); color: white; border-radius: 25px; padding: 12px 35px; margin-right: 15px; border: none; font-weight: bold; text-decoration: none; display: inline-block; }
-        .btn-learn { border: 2px solid white; color: white; border-radius: 25px; padding: 10px 35px; text-decoration: none; font-weight: bold; display: inline-block; }
+        .btn-track { background-color: var(--main-orange); color: white; border-radius: 25px; padding: 15px 35px; margin-right: 15px; border: none; font-weight: bold; text-decoration: none; display: inline-block; }
+        .btn-learn { border: 2px solid white; color: white; border-radius: 25px; padding: 13px 35px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
         .btn-learn:hover { background: white; color: var(--main-blue); }
 
         /* Feature Cards */
-        .info-cards { margin-top: -70px; position: relative; z-index: 10; }
+        .info-cards { margin-top: -80px; position: relative; z-index: 10; }
         .card-custom { 
-            border: none; border-radius: 15px; padding: 40px 30px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: 0.3s;
-            background: white; min-height: 250px; text-align: left;
+            border: none; border-radius: 15px; padding: 50px 35px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12); transition: 0.3s;
+            background: white; min-height: 280px; text-align: left;
         }
         .card-custom:hover { transform: translateY(-10px); }
-        .card-title { font-weight: 800; color: var(--main-blue); font-size: 1.2rem; line-height: 1.3; margin-bottom: 20px; }
-        .orange-line { width: 40px; height: 3px; background-color: var(--main-orange); margin-bottom: 20px; border: none; opacity: 1; }
+        .card-title { font-weight: 800; color: var(--main-blue); font-size: 1.3rem; line-height: 1.2; margin-bottom: 20px; text-transform: uppercase; }
+        .orange-line { width: 50px; height: 4px; background-color: var(--main-orange); margin-bottom: 25px; border: none; opacity: 1; }
+        .card-text { color: #666; font-size: 0.95rem; line-height: 1.6; }
 
         /* Footer */
-        footer { background-color: #fff; padding: 60px 0; border-top: 1px solid #eee; }
-        .footer-logo { height: 50px; margin-bottom: 20px; }
-        .contact-info { color: #555; font-size: 0.9rem; }
+        footer { background-color: #fff; padding: 80px 0 40px; border-top: 1px solid #eee; }
+        .footer-logo { height: 60px; margin-bottom: 30px; }
+        .contact-info { color: #444; font-size: 1rem; }
+        .copyright { color: #999; font-size: 0.85rem; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-white sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="tls logo.jfif" height="60" alt="iTLS Logo">
@@ -65,7 +66,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
                 </ul>
-                <a href="#" class="btn btn-quote text-uppercase">Get a Quote</a>
+                <a href="#" class="btn btn-quote">GET A QUOTE</a>
             </div>
         </div>
     </nav>
@@ -85,23 +86,23 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card-custom">
-                        <div class="card-title text-uppercase">Trading &<br>Supply Chain</div>
+                        <div class="card-title">TRADING &<br>SUPPLY CHAIN</div>
                         <hr class="orange-line">
-                        <p class="text-muted small">Optimizing your global flow of goods with expert supply chain management and trade facilitation.</p>
+                        <p class="card-text">Optimizing your global flow of goods with expert supply chain management and trade facilitation.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card-custom">
-                        <div class="card-title text-uppercase">International<br>Freight</div>
+                        <div class="card-title">INTERNATIONAL<br>FREIGHT</div>
                         <hr class="orange-line">
-                        <p class="text-muted small">Comprehensive Air, Sea, and Land transportation services tailored to your business needs.</p>
+                        <p class="card-text">Comprehensive Air, Sea, and Land transportation services tailored to your specific business needs.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card-custom">
-                        <div class="card-title text-uppercase">Warehousing<br>& Distribution</div>
+                        <div class="card-title">WAREHOUSING<br>& DISTRIBUTION</div>
                         <hr class="orange-line">
-                        <p class="text-muted small">Secure storage solutions and efficient distribution networks for seamless last-mile delivery.</p>
+                        <p class="card-text">Secure storage solutions and efficient distribution networks for seamless last-mile delivery.</p>
                     </div>
                 </div>
             </div>
@@ -111,11 +112,12 @@
     <footer>
         <div class="container text-center">
             <img src="tls logo.jfif" class="footer-logo" alt="iTLS Logo">
-            <div class="contact-info mt-3">
+            <div class="contact-info mt-2">
                 <p class="mb-1 fw-bold">+11 (123) 445-7989</p>
                 <p class="mb-1">info@tradingitls.com</p>
-                <p class="small text-secondary">© 2026 iTLS. All Rights Reserved.</p>
+                <p class="mb-0">www.itls.com</p>
             </div>
+            <p class="copyright">© 2026 iTLS - Integrated Trading and Logistics Solutions. All Rights Reserved.</p>
         </div>
     </footer>
 
