@@ -1,88 +1,105 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iTLS | Integrated Trading and Logistics Solutions</title>
+    <title>TLS | Trading & Logistics Solutions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .hero-section { 
-            background: linear-gradient(rgba(0, 42, 92, 0.8), rgba(0, 42, 92, 0.8)), 
-            url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); 
-            background-size: cover; 
-            color: white; 
-            padding: 120px 0; 
+        :root { --main-blue: #0D203D; --main-orange: #B35B2D; }
+        body { font-family: 'Arial', sans-serif; }
+        
+        /* Navbar */
+        .navbar { padding: 15px 0; border-bottom: 1px solid #eee; }
+        .nav-link { font-weight: 600; color: #333 !important; text-transform: uppercase; margin: 0 10px; }
+        .btn-quote { background-color: var(--main-orange); color: white !important; border-radius: 25px; padding: 8px 25px; }
+
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(rgba(13, 32, 61, 0.8), rgba(13, 32, 61, 0.8)), 
+            url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            color: white; padding: 120px 0; text-align: center;
         }
-        .service-card { border: none; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 12px; }
-        .service-card:hover { transform: translateY(-10px); }
-        .navbar-brand { font-weight: bold; color: #002a5c !important; font-size: 1.5rem; }
-        .btn-primary { background-color: #002a5c; border: none; }
-        .btn-primary:hover { background-color: #004a99; }
+        .hero h1 { font-weight: 800; font-size: 3rem; }
+        .orange-text { color: var(--main-orange); }
+        .btn-track { background-color: var(--main-orange); color: white; border-radius: 25px; padding: 12px 30px; margin-right: 15px; border: none; }
+        .btn-learn { border: 2px solid white; color: white; border-radius: 25px; padding: 10px 30px; text-decoration: none; }
+
+        /* Cards */
+        .info-cards { margin-top: -60px; }
+        .card-custom { 
+            border: none; border-radius: 15px; padding: 30px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: 0.3s;
+            background: white; min-height: 200px;
+        }
+        .card-custom:hover { transform: translateY(-5px); }
+        .card-title { font-weight: bold; color: var(--main-blue); font-size: 1.1rem; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <nav class="navbar navbar-expand-lg bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">iTLS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" height="50" alt="TLS">
+            </a>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
                 </ul>
+                <a href="#" class="btn btn-quote">GET A QUOTE</a>
             </div>
         </div>
     </nav>
 
-    <header id="home" class="hero-section text-center">
+    <header class="hero">
         <div class="container">
-            <h1 class="display-3 fw-bold mb-4">iTLS Integrated Solutions</h1>
-            <p class="lead mb-5">Your Strategic Partner in Global Trading and Logistics Services.</p>
-            <a href="#services" class="btn btn-warning btn-lg px-5 fw-bold">Our Services</a>
+            <h1>TLS: INTEGRATED <span class="orange-text">TRADING & LOGISTICS</span> SOLUTIONS FOR THE GLOBAL ECONOMY</h1>
+            <div class="mt-5">
+                <button class="btn btn-track">TRACK YOUR SHIPMENT</button>
+                <a href="#" class="btn btn-learn">LEARN MORE</a>
+            </div>
         </div>
     </header>
 
-    <section id="services" class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="mb-5 fw-bold">Professional Services</h2>
-            <div class="row g-4">
+    <section class="info-cards">
+        <div class="container">
+            <div class="row g-4 text-start">
                 <div class="col-md-4">
-                    <div class="card h-100 service-card p-4">
-                        <h3 class="h5 mb-3 text-primary">Logistics Services</h3>
-                        <p class="text-muted">Complete supply chain and transport management ensuring your cargo arrives safely and on time.</p>
+                    <div class="card-custom">
+                        <p class="card-title">TRADING &<br>SUPPLY CHAIN</p>
+                        <hr width="50" class="orange-text">
+                        <p class="text-muted small">Optimizing your flow of goods globally.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100 service-card p-4">
-                        <h3 class="h5 mb-3 text-primary">General Trading</h3>
-                        <p class="text-muted">Facilitating import/export operations and opening new trade horizons in global markets.</p>
+                    <div class="card-custom">
+                        <p class="card-title">INTERNATIONAL<br>FREIGHT</p>
+                        <hr width="50" class="orange-text">
+                        <p class="text-muted small">Air, Sea, and Land transportation services.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100 service-card p-4">
-                        <h3 class="h5 mb-3 text-primary">Strategic Consulting</h3>
-                        <p class="text-muted">Providing innovative solutions to optimize your business performance and achieve exceptional results.</p>
+                    <div class="card-custom">
+                        <p class="card-title">WAREHOUSING<br>& DISTRIBUTION</p>
+                        <hr width="50" class="orange-text">
+                        <p class="text-muted small">Secure storage and efficient last-mile delivery.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="bg-dark text-white py-5 text-center">
-        <div class="container">
-            <h2 class="mb-4">Ready to Start?</h2>
-            <p>Integrated Trading and Logistics Solutions</p>
-            <div class="mt-4">
-                <p class="small text-secondary">© 2026 iTLS. All Rights Reserved.</p>
-            </div>
+    <footer class="py-5 mt-5">
+        <div class="container text-center">
+            <img src="logo.png" height="40" alt="TLS" class="mb-3">
+            <p class="text-muted small">+11 (123) 445-7989 | info@tradingitls.com</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
