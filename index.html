@@ -3,38 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TLS | Trading & Logistics Solutions</title>
+    <title>iTLS | Integrated Trading & Logistics Solutions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root { --main-blue: #0D203D; --main-orange: #B35B2D; }
-        body { font-family: 'Arial', sans-serif; }
+        :root { 
+            --main-blue: #0D203D; 
+            --main-orange: #B35B2D; 
+        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
         
-        /* Navbar */
-        .navbar { padding: 15px 0; border-bottom: 1px solid #eee; }
-        .nav-link { font-weight: 600; color: #333 !important; text-transform: uppercase; margin: 0 10px; }
-        .btn-quote { background-color: var(--main-orange); color: white !important; border-radius: 25px; padding: 8px 25px; }
+        /* Navigation */
+        .navbar { padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
+        .nav-link { font-weight: 600; color: #333 !important; text-transform: uppercase; margin: 0 10px; font-size: 0.9rem; }
+        .nav-link:hover { color: var(--main-orange) !important; }
+        .btn-quote { background-color: var(--main-orange); color: white !important; border-radius: 25px; padding: 8px 25px; font-weight: bold; border: none; }
 
         /* Hero Section */
         .hero { 
-            background: linear-gradient(rgba(13, 32, 61, 0.8), rgba(13, 32, 61, 0.8)), 
-            url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(13, 32, 61, 0.75), rgba(13, 32, 61, 0.75)), 
+            url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1350&q=80');
             background-size: cover; background-position: center;
-            color: white; padding: 120px 0; text-align: center;
+            color: white; padding: 140px 0; text-align: center;
         }
-        .hero h1 { font-weight: 800; font-size: 3rem; }
+        .hero h1 { font-weight: 800; font-size: 3.2rem; line-height: 1.2; max-width: 900px; margin: 0 auto; }
         .orange-text { color: var(--main-orange); }
-        .btn-track { background-color: var(--main-orange); color: white; border-radius: 25px; padding: 12px 30px; margin-right: 15px; border: none; }
-        .btn-learn { border: 2px solid white; color: white; border-radius: 25px; padding: 10px 30px; text-decoration: none; }
+        .btn-track { background-color: var(--main-orange); color: white; border-radius: 25px; padding: 12px 35px; margin-right: 15px; border: none; font-weight: bold; text-decoration: none; display: inline-block; }
+        .btn-learn { border: 2px solid white; color: white; border-radius: 25px; padding: 10px 35px; text-decoration: none; font-weight: bold; display: inline-block; }
+        .btn-learn:hover { background: white; color: var(--main-blue); }
 
-        /* Cards */
-        .info-cards { margin-top: -60px; }
+        /* Feature Cards */
+        .info-cards { margin-top: -70px; position: relative; z-index: 10; }
         .card-custom { 
-            border: none; border-radius: 15px; padding: 30px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: 0.3s;
-            background: white; min-height: 200px;
+            border: none; border-radius: 15px; padding: 40px 30px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: 0.3s;
+            background: white; min-height: 250px; text-align: left;
         }
-        .card-custom:hover { transform: translateY(-5px); }
-        .card-title { font-weight: bold; color: var(--main-blue); font-size: 1.1rem; }
+        .card-custom:hover { transform: translateY(-10px); }
+        .card-title { font-weight: 800; color: var(--main-blue); font-size: 1.2rem; line-height: 1.3; margin-bottom: 20px; }
+        .orange-line { width: 40px; height: 3px; background-color: var(--main-orange); margin-bottom: 20px; border: none; opacity: 1; }
+
+        /* Footer */
+        footer { background-color: #fff; padding: 60px 0; border-top: 1px solid #eee; }
+        .footer-logo { height: 50px; margin-bottom: 20px; }
+        .contact-info { color: #555; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -42,8 +53,11 @@
     <nav class="navbar navbar-expand-lg bg-white sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="logo.png" height="50" alt="TLS">
+                <img src="tls logo.jfif" height="60" alt="iTLS Logo">
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
@@ -51,7 +65,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
                 </ul>
-                <a href="#" class="btn btn-quote">GET A QUOTE</a>
+                <a href="#" class="btn btn-quote text-uppercase">Get a Quote</a>
             </div>
         </div>
     </nav>
@@ -60,7 +74,7 @@
         <div class="container">
             <h1>TLS: INTEGRATED <span class="orange-text">TRADING & LOGISTICS</span> SOLUTIONS FOR THE GLOBAL ECONOMY</h1>
             <div class="mt-5">
-                <button class="btn btn-track">TRACK YOUR SHIPMENT</button>
+                <a href="#" class="btn btn-track">TRACK YOUR SHIPMENT</a>
                 <a href="#" class="btn btn-learn">LEARN MORE</a>
             </div>
         </div>
@@ -68,38 +82,43 @@
 
     <section class="info-cards">
         <div class="container">
-            <div class="row g-4 text-start">
+            <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card-custom">
-                        <p class="card-title">TRADING &<br>SUPPLY CHAIN</p>
-                        <hr width="50" class="orange-text">
-                        <p class="text-muted small">Optimizing your flow of goods globally.</p>
+                        <div class="card-title text-uppercase">Trading &<br>Supply Chain</div>
+                        <hr class="orange-line">
+                        <p class="text-muted small">Optimizing your global flow of goods with expert supply chain management and trade facilitation.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card-custom">
-                        <p class="card-title">INTERNATIONAL<br>FREIGHT</p>
-                        <hr width="50" class="orange-text">
-                        <p class="text-muted small">Air, Sea, and Land transportation services.</p>
+                        <div class="card-title text-uppercase">International<br>Freight</div>
+                        <hr class="orange-line">
+                        <p class="text-muted small">Comprehensive Air, Sea, and Land transportation services tailored to your business needs.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card-custom">
-                        <p class="card-title">WAREHOUSING<br>& DISTRIBUTION</p>
-                        <hr width="50" class="orange-text">
-                        <p class="text-muted small">Secure storage and efficient last-mile delivery.</p>
+                        <div class="card-title text-uppercase">Warehousing<br>& Distribution</div>
+                        <hr class="orange-line">
+                        <p class="text-muted small">Secure storage solutions and efficient distribution networks for seamless last-mile delivery.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-5 mt-5">
+    <footer>
         <div class="container text-center">
-            <img src="logo.png" height="40" alt="TLS" class="mb-3">
-            <p class="text-muted small">+11 (123) 445-7989 | info@tradingitls.com</p>
+            <img src="tls logo.jfif" class="footer-logo" alt="iTLS Logo">
+            <div class="contact-info mt-3">
+                <p class="mb-1 fw-bold">+11 (123) 445-7989</p>
+                <p class="mb-1">info@tradingitls.com</p>
+                <p class="small text-secondary">© 2026 iTLS. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
