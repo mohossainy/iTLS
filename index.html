@@ -3,41 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iTLS | Integrated Trading & Logistics Solutions</title>
+    
+    <title>iTLS | Integrated Trading & Logistics Solutions | Dubai</title>
+    <meta name="description" content="iTLS offers world-class integrated trading and logistics solutions. Specialist in Air, Ocean, Land freight and Vessel Charters from Dubai to the world.">
+    <meta name="keywords" content="Logistics Dubai, Trading Solutions, Air Freight, Ocean Freight, Vessel Charter, Supply Chain UAE">
+    
+    <meta property="og:title" content="iTLS | Integrated Trading & Logistics Solutions">
+    <meta property="og:description" content="Engineering end-to-end supply chain ecosystems for global trade.">
+    <meta property="og:image" content="tls logo.png">
+    <meta property="og:type" content="website">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root { --main-blue: #0D203D; --main-orange: #B35B2D; --dark-overlay: rgba(13, 32, 61, 0.85); }
-        body { font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; color: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; color: #333; overflow-x: hidden; }
 
         /* Navbar */
         .navbar { background: #fff !important; padding: 12px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-bottom: 4px solid var(--main-blue); }
         .navbar-brand img { height: 85px; width: auto; }
-        .nav-link { font-weight: 800; color: var(--main-blue) !important; text-transform: uppercase; margin: 0 15px; }
+        .nav-link { font-weight: 800; color: var(--main-blue) !important; text-transform: uppercase; margin: 0 15px; transition: 0.3s; }
+        .nav-link:hover { color: var(--main-orange) !important; }
 
-        /* Hero */
+        /* Hero Section */
         .hero { 
             background: linear-gradient(var(--dark-overlay), var(--dark-overlay)), 
             url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover; background-position: center;
+            background-size: cover; background-position: center; background-attachment: fixed;
             color: white; padding: 160px 0; text-align: center;
         }
-        .itls-title { font-size: 6rem; color: var(--main-orange); font-weight: 900; display: block; line-height: 1; margin-bottom: 10px; }
+        .itls-title { font-size: 6rem; color: var(--main-orange); font-weight: 900; display: block; line-height: 1; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
         .hero h2 { font-size: 3rem; font-weight: 800; text-transform: uppercase; margin-top: 0; letter-spacing: 2px; }
 
-        /* Sections Styling */
+        /* General Styling */
         .section-padding { padding: 100px 0; }
         .orange-line { width: 70px; height: 5px; background: var(--main-orange); border: none; margin: 25px auto; opacity: 1; }
         .section-title { color: var(--main-blue); font-weight: 800; text-transform: uppercase; text-align: center; }
 
-        /* Services Grid */
+        /* Service Cards */
         .service-card-link { text-decoration: none; display: block; }
         .service-container {
             position: relative; height: 380px; border-radius: 20px;
             overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: 0.5s;
         }
-        .service-container:hover { transform: translateY(-12px); }
+        .service-container:hover { transform: translateY(-12px); box-shadow: 0 20px 45px rgba(0,0,0,0.2); }
         .service-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: 1; }
         .service-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, transparent, rgba(13,32,61,0.95)); z-index: 2; }
         .service-content { position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 35px; color: white; }
@@ -48,19 +58,19 @@
         .detail-section:nth-child(even) { background-color: #f9f9f9; }
         .detail-title { color: var(--main-blue); font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
         .feature-list { list-style: none; padding: 0; margin-top: 20px; }
-        .feature-list li { margin-bottom: 10px; font-weight: 600; color: var(--main-blue); }
-        .feature-list li i { color: var(--main-orange); margin-right: 10px; }
+        .feature-list li { margin-bottom: 12px; font-weight: 600; color: var(--main-blue); display: flex; align-items: center; }
+        .feature-list li i { color: var(--main-orange); margin-right: 15px; font-size: 1.2rem; }
 
         /* Contact Section */
-        .contact-info-box { background: var(--main-blue); color: white; padding: 40px; border-radius: 20px; height: 100%; }
-        .contact-item { margin-bottom: 25px; display: flex; align-items: flex-start; }
-        .contact-item i { font-size: 1.5rem; color: var(--main-orange); margin-right: 20px; margin-top: 5px; }
+        .contact-info-box { background: var(--main-blue); color: white; padding: 45px; border-radius: 25px; height: 100%; box-shadow: 0 10px 30px rgba(13,32,61,0.2); }
+        .contact-item { margin-bottom: 30px; display: flex; align-items: center; }
+        .contact-item i { font-size: 1.8rem; color: var(--main-orange); margin-right: 20px; }
 
-        /* WhatsApp Floating Button */
+        /* WhatsApp Button */
         .whatsapp-float {
-            position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
+            position: fixed; width: 65px; height: 65px; bottom: 40px; right: 40px;
             background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center;
-            font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 1000;
+            font-size: 35px; box-shadow: 2px 5px 15px rgba(0,0,0,0.3); z-index: 1000;
             display: flex; align-items: center; justify-content: center; text-decoration: none;
             transition: 0.3s;
         }
@@ -68,7 +78,8 @@
 
         /* Buttons & Footer */
         .btn-nav-quote { background: var(--main-orange); color: white; border-radius: 50px; font-weight: 800; border: none; padding: 12px 35px; transition: 0.3s; }
-        footer { padding: 60px 0; background: #fff; text-align: center; border-top: 5px solid var(--main-blue); }
+        .btn-nav-quote:hover { background: #8e4722; color: white; transform: translateY(-2px); }
+        footer { padding: 80px 0; background: #fff; text-align: center; border-top: 5px solid var(--main-blue); }
     </style>
 </head>
 <body>
@@ -103,7 +114,7 @@
         <div class="container">
             <h3 class="section-title">The <span style="color:var(--main-orange); text-transform:none;">iTLS</span> Advantage</h3>
             <hr class="orange-line">
-            <p class="fs-4 text-center text-muted max-width: 950px; margin: 0 auto;">
+            <p class="fs-4 text-center text-muted mx-auto" style="max-width: 950px;">
                 At <strong>iTLS</strong>, we bridge the gap between global trading and complex logistics. We engineer end-to-end supply chain ecosystems to ensure your business scales with maximum speed and total transparency.
             </p>
         </div>
@@ -163,7 +174,8 @@
                         <p class="fs-5 text-muted">Precision-timed air cargo solutions moving your assets via the fastest global routes.</p>
                         <ul class="feature-list">
                             <li><i class="fas fa-check-circle"></i> Door-to-Door Global Express</li>
-                            <li><i class="fas fa-check-circle"></i> Priority Boarding & Space</li>
+                            <li><i class="fas fa-check-circle"></i> Priority Boarding & Guaranteed Space</li>
+                            <li><i class="fas fa-check-circle"></i> Specialized Handling for Fragile Cargo</li>
                         </ul>
                     </div>
                 </div>
@@ -176,10 +188,45 @@
                     <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg"></div>
                     <div class="col-lg-6 pe-lg-5">
                         <h2 class="detail-title">Global Ocean Intelligence</h2>
-                        <p class="fs-5 text-muted">Strategic partnerships ensuring cost-efficiency in volatile maritime markets.</p>
+                        <p class="fs-5 text-muted">Strategic maritime partnerships ensuring cost-efficiency in volatile global markets.</p>
                         <ul class="feature-list">
                             <li><i class="fas fa-check-circle"></i> FCL & LCL Optimized Routing</li>
                             <li><i class="fas fa-check-circle"></i> Real-time Container Tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Breakbulk & RO-RO Expertise</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="land-detail" class="detail-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg"></div>
+                    <div class="col-lg-6 ps-lg-5">
+                        <h2 class="detail-title">Reliable Land Logistics</h2>
+                        <p class="fs-5 text-muted">Robust trucking networks ensuring safe, cross-border and regional delivery.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Cross-Border Customs Solutions</li>
+                            <li><i class="fas fa-check-circle"></i> GPS Tracked Fleet Support</li>
+                            <li><i class="fas fa-check-circle"></i> Last-Mile Distribution Precision</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="charter-detail" class="detail-section">
+            <div class="container">
+                <div class="row align-items-center flex-lg-row-reverse">
+                    <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1559139225-421502da1307?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg"></div>
+                    <div class="col-lg-6 pe-lg-5">
+                        <h2 class="detail-title">Vessel Chartering</h2>
+                        <p class="fs-5 text-muted">Bespoke chartering for heavy-lift industrial projects and high-volume cargo.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Full & Part Vessel Charters</li>
+                            <li><i class="fas fa-check-circle"></i> Heavy Machinery Transport</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 Voyage Monitoring</li>
                         </ul>
                     </div>
                 </div>
@@ -187,54 +234,62 @@
         </section>
     </div>
 
-    <section id="contact" class="section-padding bg-light">
+    <section id="contact" class="section-padding bg-white">
         <div class="container">
-            <h3 class="section-title">Get In Touch</h3>
+            <h3 class="section-title">Connect with Our Strategists</h3>
             <hr class="orange-line">
-            <div class="row g-4 mt-4">
+            <div class="row g-5 mt-4">
                 <div class="col-lg-5">
                     <div class="contact-info-box">
-                        <h4 class="fw-bold mb-4">Contact Information</h4>
+                        <h4 class="fw-bold mb-4">iTLS Headquarters</h4>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <div><p class="m-0">Dubai, United Arab Emirates</p></div>
+                            <div><p class="m-0 fs-5">Dubai, United Arab Emirates</p></div>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div><p class="m-0">+971 56 293 3289</p></div>
+                            <i class="fas fa-phone-alt"></i>
+                            <div><p class="m-0 fs-5">+971 56 293 3289</p></div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <div><p class="m-0">info@itls.ae</p></div>
+                            <div><p class="m-0 fs-5">itls.dxb@gmail.com</p></div>
                         </div>
                         <div class="mt-5">
-                            <a href="https://wa.me/971562933289" class="btn btn-light fw-bold rounded-pill px-4">Chat on WhatsApp</a>
+                            <a href="https://wa.me/971562933289" class="btn btn-light btn-lg fw-bold rounded-pill px-5 shadow">Chat on WhatsApp</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <div class="rounded-4 overflow-hidden shadow-sm" style="height: 100%; min-height: 400px;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462560.3031911912!2d54.92703460831612!3d25.07602244247545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2sDubai!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="card border-0 shadow-lg rounded-4 p-4">
+                        <form action="https://formspree.io/f/itls.dxb@gmail.com" method="POST">
+                            <div class="row g-3">
+                                <div class="col-md-6"><input type="text" name="name" class="form-control form-control-lg bg-light border-0" placeholder="Your Name" required></div>
+                                <div class="col-md-6"><input type="email" name="email" class="form-control form-control-lg bg-light border-0" placeholder="Email Address" required></div>
+                                <div class="col-md-12"><input type="text" name="subject" class="form-control form-control-lg bg-light border-0" placeholder="Subject"></div>
+                                <div class="col-md-12"><textarea name="message" class="form-control form-control-lg bg-light border-0" rows="5" placeholder="Your Message" required></textarea></div>
+                                <div class="col-md-12"><button type="submit" class="btn btn-nav-quote btn-lg w-100 py-3 shadow">SEND MESSAGE</button></div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="modal fade" id="quoteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="quoteModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header" style="background:var(--main-blue); color:white;">
-                    <h5 class="modal-title fw-bold">REQUEST A QUOTE</h5>
+            <div class="modal-content border-0 rounded-4">
+                <div class="modal-header text-white" style="background: var(--main-blue);">
+                    <h5 class="modal-title fw-bold">REQUEST A STRATEGIC QUOTE</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body p-4">
-                    <form>
+                    <form action="https://formspree.io/f/itls.dxb@gmail.com" method="POST">
                         <div class="row g-3">
-                            <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name" required></div>
-                            <div class="col-md-6"><input type="email" class="form-control" placeholder="Email Address" required></div>
-                            <div class="col-md-12"><textarea class="form-control" rows="3" placeholder="Describe your logistics needs..."></textarea></div>
-                            <div class="col-md-12 text-center mt-4"><button type="submit" class="btn btn-nav-quote w-100 shadow">SUBMIT REQUEST</button></div>
+                            <div class="col-md-6"><label class="fw-bold mb-2">Full Name</label><input type="text" name="name" class="form-control" required></div>
+                            <div class="col-md-6"><label class="fw-bold mb-2">Email Address</label><input type="email" name="email" class="form-control" required></div>
+                            <div class="col-md-12"><label class="fw-bold mb-2">Cargo Type & Volume</label><textarea name="cargo_details" class="form-control" rows="3" required></textarea></div>
+                            <div class="col-md-12 text-center"><button type="submit" class="btn btn-nav-quote w-100 py-3 mt-3">SUBMIT QUOTE REQUEST</button></div>
                         </div>
                     </form>
                 </div>
@@ -244,9 +299,14 @@
 
     <footer>
         <div class="container">
-            <img src="tls logo.png" style="height: 75px; margin-bottom: 20px;">
-            <p class="fw-bold text-muted small mb-1 uppercase">iTLS - Integrated Trading and Logistics Solutions</p>
-            <p class="text-secondary small">© 2026 iTLS. All Rights Reserved.</p>
+            <img src="tls logo.png" style="height: 80px; margin-bottom: 25px;">
+            <p class="fw-bold text-muted uppercase mb-1">iTLS - Integrated Trading and Logistics Solutions</p>
+            <p class="text-secondary small mb-4">Optimizing Supply Chains. Empowering Global Trade.</p>
+            <div class="social-links">
+                <a href="#" class="text-muted mx-2 fs-5"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-muted mx-2 fs-5"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="text-muted x-small mt-4">© 2026 iTLS. All Rights Reserved.</p>
         </div>
     </footer>
 
