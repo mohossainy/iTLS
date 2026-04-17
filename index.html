@@ -239,24 +239,59 @@
         </div>
     </section>
 
-    <div class="modal fade" id="quoteModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered"><div class="modal-content border-0 rounded-4">
-            <div class="modal-header text-white" style="background: var(--main-blue);">
-                <h5 class="modal-title" data-en="Request Quote" data-ar="طلب عرض سعر">Request Quote</h5>
+    <<div class="modal fade" id="quoteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content border-0 rounded-4 shadow-lg">
+            <div class="modal-header text-white" style="background: var(--main-blue); padding: 25px;">
+                <div>
+                    <h5 class="modal-title fw-bold" data-en="Get a Strategic Quote" data-ar="احصل على عرض سعر استراتيجي">Get a Strategic Quote</h5>
+                    <small class="opacity-75" data-en="Our experts will contact you within 2 hours" data-ar="سيتواصل معك خبراؤنا خلال ساعتين">Our experts will contact you within 2 hours</small>
+                </div>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body p-4 text-center">
-                <div id="quote-success" class="alert alert-success d-none" data-en="Request Received!" data-ar="تم استلام طلبك!">Request Received!</div>
-                <form id="quote-form">
-                    <input type="text" name="name" class="form-control mb-3" placeholder="Full Name" required>
-                    <input type="email" name="email" class="form-control mb-3" placeholder="Email Address" required>
-                    <textarea name="cargo" class="form-control mb-3" rows="3" placeholder="Cargo & Route" required></textarea>
-                    <button type="submit" class="btn btn-orange w-100 py-3" data-en="SUBMIT" data-ar="إرسال">SUBMIT</button>
+            <div class="modal-body p-4 p-md-5">
+                <div id="quote-success" class="alert alert-success d-none text-center py-4">
+                    <i class="fas fa-check-circle fs-1 mb-2"></i>
+                    <h4 data-en="Success!" data-ar="تم بنجاح!">Success!</h4>
+                    <p data-en="Your inquiry is being processed." data-ar="جري معالجة طلبك الآن.">Your inquiry is being processed.</p>
+                </div>
+
+                <form id="quote-form" class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+                        <input type="text" name="name" class="form-control form-control-lg border-2" placeholder="John Doe" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold" data-en="Corporate Email" data-ar="البريد الإلكتروني للشركة">Corporate Email</label>
+                        <input type="email" name="email" class="form-control form-control-lg border-2" placeholder="name@company.com" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold" data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</label>
+                        <input type="tel" name="phone" class="form-control form-control-lg border-2" placeholder="+971 XXX XXX XXX" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold" data-en="Service Required" data-ar="الخدمة المطلوبة">Service Required</label>
+                        <select name="service_type" class="form-select form-control-lg border-2">
+                            <option value="Air Freight" data-en="Air Freight" data-ar="شحن جوي">Air Freight</option>
+                            <option value="Ocean Freight" data-en="Ocean Freight" data-ar="شحن بحري">Ocean Freight</option>
+                            <option value="Land Transport" data-en="Land Transport" data-ar="نقل بري">Land Transport</option>
+                            <option value="Trading Solution" data-en="Trading Solution" data-ar="حلول تجارية">Trading Solution</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label fw-bold" data-en="Cargo Details & Route" data-ar="تفاصيل الشحنة والوجهة">Cargo Details & Route</label>
+                        <textarea name="cargo_details" class="form-control border-2" rows="3" placeholder="..." required></textarea>
+                    </div>
+                    
+                    <div class="col-12 mt-4">
+                        <button type="submit" class="btn btn-orange w-100 py-3 fs-5 shadow-sm" data-en="ACTIVATE QUOTE" data-ar="تفعيل الطلب">
+                            ACTIVATE QUOTE <i class="fas fa-paper-plane ms-2"></i>
+                        </button>
+                    </div>
                 </form>
             </div>
-        </div></div>
+        </div>
     </div>
-
+</div>
     <footer><img src="tls logo.png" style="height: 65px; margin-bottom: 20px;"><p>© 2026 iTLS Dubai. All Rights Reserved.</p></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
