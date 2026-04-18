@@ -61,24 +61,33 @@
     position: fixed; 
     width: 65px; 
     height: 65px; 
-    bottom: 110px; 
+    bottom: 110px; /* ليكون فوق زر الواتساب */
     right: 35px; 
-    background: #0D203D !important; 
+    background-color: #0D203D !important; 
     color: #ffffff !important; 
     border-radius: 50%; 
     font-size: 25px; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    z-index: 9999; 
     text-decoration: none !important; 
     box-shadow: 0 5px 20px rgba(0,0,0,0.3); 
     transition: 0.3s; 
     cursor: pointer;
+    z-index: 999999 !important; /* لضمان ظهوره فوق كل شيء */
+    pointer-events: auto !important; /* للتأكد من استجابة النقر */
 }
-.phone-float i { color: #ffffff !important; }
+
+.phone-float i { 
+    color: #ffffff !important; 
+}
+
 .phone-float:hover { 
-    background: #B35B2D !important; 
+    background-color: #B35B2D !important; 
+    transform: scale(1.1);
+    color: #ffffff !important;
+}
+        background: #B35B2D !important; 
     transform: scale(1.1);
 }    </style>
 </head>
@@ -366,7 +375,7 @@
             });
       });
     </script>
-    <a href="tel:+971562933289" class="phone-float">
+    <a href="tel:+971562933289" class="phone-float" target="_top">
     <i class="fas fa-phone-alt"></i>
 </a>
 </body>
