@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="iTLS Dubai offers integrated trading and logistics solutions: Air, Sea, and Land freight with competitive rates. Get a quote today!">
     <title>iTLS | Integrated Trading & Logistics Solutions | Dubai</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,17 +10,15 @@
     
     <style>
         :root { --main-blue: #0D203D; --main-orange: #B35B2D; --dark-overlay: rgba(13, 32, 61, 0.85); }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; color: #333; overflow-x: hidden; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; color: #333; overflow-x: hidden; transition: 0.3s; }
         [lang="ar"] { direction: rtl; text-align: right; }
 
         /* Navigation */
         .top-bar { background: #f8f9fa; padding: 10px 0; border-bottom: 1px solid #eee; }
-        .lang-btn { color: var(--main-blue); font-weight: bold; cursor: pointer; border: 2px solid var(--main-blue); border-radius: 20px; padding: 2px 15px; background: none; transition: 0.2s; }
-        .lang-btn:hover { background: var(--main-blue); color: white; }
+        .lang-btn { color: var(--main-blue); font-weight: bold; cursor: pointer; border: 2px solid var(--main-blue); border-radius: 20px; padding: 2px 15px; background: none; }
         .navbar { background: #fff !important; padding: 12px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-bottom: 4px solid var(--main-blue); }
-        .navbar-brand img { height: 70px; width: auto; }
-        .nav-link { font-weight: 800; color: var(--main-blue) !important; text-transform: uppercase; margin: 0 12px; transition: 0.2s; }
-        .nav-link:hover { color: var(--main-orange) !important; }
+        .navbar-brand img { height: 80px; width: auto; }
+        .nav-link { font-weight: 800; color: var(--main-blue) !important; text-transform: uppercase; margin: 0 12px; }
 
         /* Hero */
         .hero { 
@@ -30,13 +27,13 @@
             background-size: cover; background-position: center; background-attachment: fixed;
             color: white; padding: 130px 0; text-align: center;
         }
-        .itls-title { font-size: 5.5rem; color: var(--main-orange); font-weight: 900; line-height: 1; }
+        .itls-title { font-size: 6rem; color: var(--main-orange); font-weight: 900; line-height: 1; }
         .hero h2 { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; }
 
         /* Sections */
         .section-padding { padding: 90px 0; }
         .section-title { color: var(--main-blue); font-weight: 800; text-transform: uppercase; text-align: center; }
-        .orange-line { width: 70px; height: 5px; background: var(--main-orange); border: none; margin: 20px auto; }
+        .orange-line { width: 70px; height: 5px; background: var(--main-orange); border: none; margin: 20px auto; opacity: 1; }
 
         /* Trading */
         .trading-section { background: var(--main-blue); color: white; padding: 80px 0; }
@@ -54,21 +51,13 @@
         .detail-section { padding: 100px 0; border-bottom: 1px solid #eee; }
         .detail-section:nth-child(even) { background-color: #fcfcfc; }
         .feature-list { list-style: none; padding: 0; margin-top: 20px; }
-        .feature-list li { margin-bottom: 12px; font-weight: 600; display: flex; align-items: center; gap: 15px; }
-        .feature-list li i { color: var(--main-orange); font-size: 1.2rem; }
+        .feature-list li { margin-bottom: 12px; font-weight: 600; display: flex; align-items: center; font-size: 1.1rem; }
+        .feature-list li i { color: var(--main-orange); margin: 0 15px; }
 
         /* UI Elements */
-        .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 35px; right: 35px; background: #25d366; color: white; border-radius: 50%; font-size: 35px; display: flex; align-items: center; justify-content: center; z-index: 1000; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.2s; }
-        .whatsapp-float:hover { transform: scale(1.05); color: white; }
+        .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 35px; right: 35px; background: #25d366; color: white; border-radius: 50%; font-size: 35px; display: flex; align-items: center; justify-content: center; z-index: 1000; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         .btn-orange { background: var(--main-orange); color: white; font-weight: 800; border-radius: 50px; padding: 14px 35px; border: none; transition: 0.3s; }
-        .btn-orange:hover { background: #9a4a21; color: white; transform: translateY(-2px); }
         footer { background: #fff; padding: 60px 0; border-top: 5px solid var(--main-blue); text-align: center; }
-        .map-container iframe { width: 100%; height: 300px; border-radius: 20px; border: 0; }
-        @media (max-width: 768px) {
-            .hero { padding: 80px 0; }
-            .itls-title { font-size: 3.5rem; }
-            .hero h2 { font-size: 1.8rem; }
-        }
     </style>
 </head>
 <body lang="en">
@@ -85,9 +74,8 @@
 
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <!-- تم تغيير مسار الصورة إلى رابط placeholder مؤقت لضمان الظهور -->
-            <a class="navbar-brand" href="#"><img src="https://placehold.co/200x80/0D203D/white?text=iTLS+Logo" alt="iTLS Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-navbar="navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <a class="navbar-brand" href="#"><img src="tls logo.png" alt="iTLS Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="#" data-en="Home" data-ar="الرئيسية">Home</a></li>
@@ -105,16 +93,19 @@
         <div class="container">
             <span class="itls-title">iTLS</span>
             <h2 data-en="Integrated Trading & Logistics Solutions" data-ar="حلول التجارة والخدمات اللوجستية المتكاملة">Integrated Trading & Logistics Solutions</h2>
-            <p class="mt-3 fs-5" data-en="Air, Sea & Land Shipping with Competitive Rates and Fast Delivery" data-ar="شحن جوي وبحري وبري بأسعار تنافسية وتسليم سريع">
-                Air, Sea & Land Shipping with Competitive Rates and Fast Delivery
-            </p>
-            <a href="https://wa.me/971562933289?text=Hello iTLS, I need a shipping quote" class="btn btn-orange mt-4 px-5 py-3">
-                GET INSTANT QUOTE
-            </a>
+            <p class="mt-3 fs-5" 
+data-en="Air, Sea & Land Shipping with Competitive Rates and Fast Delivery"
+data-ar="شحن جوي وبحري وبري بأسعار تنافسية وتسليم سريع">
+Air, Sea & Land Shipping with Competitive Rates and Fast Delivery
+</p>
+
+<a href="https://wa.me/971562933289?text=Hello iTLS, I need a shipping quote"
+class="btn btn-orange mt-4 px-5 py-3">
+GET INSTANT QUOTE
+</a>
         </div>
     </header>
 
-    <!-- تم إصلاح خطأ إغلاق الوسوم في قسم About -->
     <section id="about" class="section-padding">
         <div class="container text-center">
             <h3 class="section-title" data-en="The iTLS Advantage" data-ar="ميزة iTLS الاستراتيجية">The iTLS Advantage</h3>
@@ -123,29 +114,30 @@
                 We bridge the gap between global trading and complex logistics, engineering supply chains for maximum speed and total transparency.
             </p>
         </div>
-    </section>
     
-    <!-- قسم Why Choose iTLS منفصل -->
-    <section class="section-padding text-center pt-0">
-        <div class="container">
-            <h3 class="section-title">Why Choose iTLS</h3>
-            <hr class="orange-line">
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <h5>⚡ Fast Response</h5>
-                    <p>We respond within minutes on WhatsApp</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>🌍 Global Network</h5>
-                    <p>Strong partners across China, UAE & Africa</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>💰 Competitive Pricing</h5>
-                    <p>Best rates for all shipping solutions</p>
-                </div>
+    <section class="section-padding text-center">
+    <div class="container">
+        <h3 class="section-title">Why Choose iTLS</h3>
+        <hr class="orange-line">
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <h5>⚡ Fast Response</h5>
+                <p>We respond within minutes on WhatsApp</p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>🌍 Global Network</h5>
+                <p>Strong partners across China, UAE & Africa</p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>💰 Competitive Pricing</h5>
+                <p>Best rates for all shipping solutions</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     
     <section id="trading" class="trading-section">
         <div class="container text-center">
@@ -214,7 +206,7 @@
 
     <div id="details-all">
         <section id="air-detail" class="detail-section"><div class="container"><div class="row align-items-center">
-            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg" alt="Air Freight Cargo Plane" loading="lazy"></div>
+            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg"></div>
             <div class="col-lg-6 ps-lg-5">
                 <h3 data-en="Air Freight Solutions" data-ar="حلول الشحن الجوي">Air Freight Solutions</h3>
                 <ul class="feature-list">
@@ -225,7 +217,7 @@
         </div></div></section>
 
         <section id="ocean-detail" class="detail-section"><div class="container"><div class="row align-items-center flex-lg-row-reverse">
-            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg" alt="Ocean Freight Container Ship" loading="lazy"></div>
+            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg"></div>
             <div class="col-lg-6 pe-lg-5">
                 <h3 data-en="Ocean Intelligence" data-ar="ذكاء الشحن البحري">Ocean Intelligence</h3>
                 <ul class="feature-list">
@@ -236,7 +228,7 @@
         </div></div></section>
 
         <section id="land-detail" class="detail-section"><div class="container"><div class="row align-items-center">
-            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg" alt="Land Transport Truck Fleet" loading="lazy"></div>
+            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg"></div>
             <div class="col-lg-6 ps-lg-5">
                 <h3 data-en="Land Transportation" data-ar="النقل البري">Land Transportation</h3>
                 <ul class="feature-list">
@@ -247,7 +239,7 @@
         </div></div></section>
 
         <section id="charter-detail" class="detail-section"><div class="container"><div class="row align-items-center flex-lg-row-reverse">
-            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1559139225-421502da1307?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg" alt="Vessel Charter and Bulk Carrier" loading="lazy"></div>
+            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1559139225-421502da1307?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg"></div>
             <div class="col-lg-6 pe-lg-5">
                 <h3 data-en="Vessel Chartering" data-ar="استئجار السفن">Vessel Chartering</h3>
                 <ul class="feature-list">
@@ -267,25 +259,17 @@
                         <h4>iTLS Dubai</h4>
                         <p class="mt-4"><i class="fas fa-phone-alt me-3"></i> +971 56 293 3289</p>
                         <p><i class="fas fa-envelope me-3"></i> itls.dxb@gmail.com</p>
-                        <p><i class="fas fa-map-marker-alt me-3"></i> Jumeirah Lakes Towers (JLT), Dubai, UAE</p>
+                        <p><i class="fas fa-map-marker-alt me-3"></i> Dubai, UAE</p>
                     </div>
                 </div>
-                <div class="col-lg-7">
-                    <!-- إضافة خريطة تفاعلية للموقع -->
-                    <div class="map-container shadow rounded-4 overflow-hidden">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.592435477983!2d55.13907431501184!3d25.074115983966185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45f6e2b6e3e9e9%3A0x8e9e8e9e8e9e8e9e!2sJLT%2C%20Dubai!5e0!3m2!1sen!2sae!4v1610000000000!5m2!1sen!2sae" 
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="iTLS Office Location Map"></iframe>
-                    </div>
+                <div class="col-lg-7 text-center pt-lg-5">
+                    <button class="btn btn-orange px-5 py-4 fs-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#quoteModal" data-en="START YOUR INQUIRY" data-ar="ابدأ استفسارك الآن">START YOUR INQUIRY</button>
+                    <p class="mt-3 text-muted" data-en="Connect with our global trade experts today." data-ar="تواصل مع خبراء التجارة العالميين لدينا اليوم.">Connect with our global trade experts today.</p>
                 </div>
-            </div>
-            <div class="text-center mt-5">
-                <button class="btn btn-orange px-5 py-4 fs-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#quoteModal" data-en="START YOUR INQUIRY" data-ar="ابدأ استفسارك الآن">START YOUR INQUIRY</button>
-                <p class="mt-3 text-muted" data-en="Connect with our global trade experts today." data-ar="تواصل مع خبراء التجارة العالميين لدينا اليوم.">Connect with our global trade experts today.</p>
             </div>
         </div>
     </section>
 
-    <!-- Modal (نفس الكود السابق لكن مع تحسين رسائل الخطأ) -->
     <div class="modal fade" id="quoteModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content border-0 rounded-4 shadow-lg">
@@ -337,12 +321,67 @@
     </div>
 
     <section class="text-center py-5" style="background:#0D203D; color:white;">
-        <h2>Need a Shipping Quote?</h2>
-        <p class="mt-3">Contact us now and get fast response</p>
-        <a href="https://wa.me/971562933289?text=Hello iTLS, I need a quote" class="btn btn-orange mt-3 px-5 py-3">
-            Contact on WhatsApp
-        </a>
-    </section>
+    <h2>Need a Shipping Quote?</h2>
+    <p class="mt-3">Contact us now and get fast response</p>
+
+    <a href="https://wa.me/971562933289?text=Hello iTLS, I need a quote"
+       class="btn btn-orange mt-3 px-5 py-3">
+       Contact on WhatsApp
+    </a>
+</section>
     
     <footer>
-        <img src="https://place
+        <img src="tls logo.png" style="height: 65px; margin-bottom: 20px;">
+        <p>© 2026 iTLS Dubai. Integrated Excellence.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function toggleLanguage() {
+          const html = document.getElementById('html-tag');
+          const langText = document.getElementById('lang-text');
+          const currentLang = html.getAttribute('lang');
+          const newLang = currentLang === 'en' ? 'ar' : 'en';
+          html.setAttribute('lang', newLang);
+          langText.innerText = newLang === 'en' ? 'العربية' : 'English';
+          document.querySelectorAll('[data-en]').forEach(el => {
+              el.innerText = el.getAttribute('data-' + newLang);
+          });
+      }
+
+      // الربط النهائي بـ Google Sheets
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzR9P6_0enx8Z46q4-VlmhqoXiR6H4rlEYfrtlp4cQOrvs2Y5qKi526VZ92rfDz3sSc/exec';
+      const form = document.getElementById('quote-form');
+
+      form.addEventListener('submit', e => {
+          e.preventDefault();
+          const submitBtn = document.getElementById('submit-btn');
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Processing...';
+
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                document.getElementById('quote-form').classList.add('d-none');
+                document.getElementById('quote-success').classList.remove('d-none');
+                setTimeout(() => {
+                    const modalEl = document.getElementById('quoteModal');
+                    const modalInstance = bootstrap.Modal.getInstance(modalEl);
+                    if(modalInstance) modalInstance.hide();
+                    setTimeout(() => {
+                        document.getElementById('quote-form').reset();
+                        document.getElementById('quote-form').classList.remove('d-none');
+                        document.getElementById('quote-success').classList.add('d-none');
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = "SUBMIT TO DATABASE";
+                    }, 500);
+                }, 3000);
+            })
+            .catch(error => {
+                alert('Database Connection Error. Ensure Script is Deployed as "Anyone".');
+                submitBtn.disabled = false;
+                submitBtn.innerText = "SUBMIT TO DATABASE";
+            });
+      });
+    </script>
+</body>
+</html>
