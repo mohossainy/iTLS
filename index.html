@@ -89,6 +89,13 @@
 }
         background: #B35B2D !important; 
     transform: scale(1.1);
+        /* تحسينات الشاشات الصغيرة - Mobile Optimization */
+        @media (max-width: 768px) {
+            .itls-title { font-size: 3.5rem !important; } /* تصغير الاسم الرئيسي */
+            .hero span.fs-3 { font-size: 1.2rem !important; } /* تصغير وصف الخدمات */
+            .hero h2 { font-size: 1rem !important; letter-spacing: 2px !important; } /* تصغير الشعار */
+            .hero { padding: 80px 0; } /* تقليل المساحة العلوية في الموبايل */
+        }
 }    </style>
 </head>
 <body lang="en">
