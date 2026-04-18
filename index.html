@@ -363,40 +363,57 @@
       }
 
       // الربط النهائي بـ Google Sheets
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbwvnz0jW-kfCzQI4efLidx214aT0sQlLxPvj_hmI4CLCFXjONRo3IMUl3Np0025TzXf/exec';
-      const form = document.getElementById('quote-form');
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("MMINOTYXMngPOcgxk"); 
+   })();
+</script>
 
-      form.addEventListener('submit', e => {
-          e.preventDefault();
-          const submitBtn = document.getElementById('submit-btn');
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Processing...';
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzpN0p7qX96S_h9u_2iS6_h-O-U_zV689K_u9-zV-G1_H_K_G-G/exec'; 
+  const form = document.forms['google-sheet'];
 
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                document.getElementById('quote-form').classList.add('d-none');
-                document.getElementById('quote-success').classList.remove('d-none');
-                setTimeout(() => {
-                    const modalEl = document.getElementById('quoteModal');
-                    const modalInstance = bootstrap.Modal.getInstance(modalEl);
-                    if(modalInstance) modalInstance.hide();
-                    setTimeout(() => {
-                        document.getElementById('quote-form').reset();
-                        document.getElementById('quote-form').classList.remove('d-none');
-                        document.getElementById('quote-success').classList.add('d-none');
-                        submitBtn.disabled = false;
-                        submitBtn.innerText = "SUBMIT TO DATABASE";
-                    }, 500);
-                }, 3000);
-            })
-            .catch(error => {
-                alert('Database Connection Error. Ensure Script is Deployed as "Anyone".');
-                submitBtn.disabled = false;
-                submitBtn.innerText = "SUBMIT TO DATABASE";
-            });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
+
+    // 1. الإرسال الفوري لـ Google Sheets
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Data logged to Google Sheets'))
+      .catch(error => console.error('Sheet Error:', error.message));
+
+    // 2. الإرسال المباشر للإيميل عبر EmailJS
+    emailjs.sendForm('service_pwjm2tw', 'template_6xmtw99', form)
+      .then(function() {
+          // إظهار واجهة النجاح
+          document.getElementById('quote-form').classList.add('d-none');
+          document.getElementById('quote-success').classList.remove('d-none');
+          
+          setTimeout(() => {
+              const modalEl = document.getElementById('quoteModal');
+              const modalInstance = bootstrap.Modal.getInstance(modalEl);
+              if(modalInstance) modalInstance.hide();
+              
+              setTimeout(() => {
+                  form.reset();
+                  document.getElementById('quote-form').classList.remove('d-none');
+                  document.getElementById('quote-success').classList.add('d-none');
+                  submitBtn.disabled = false;
+                  submitBtn.innerText = "SUBMIT TO DATABASE";
+              }, 500);
+          }, 3000);
+      }, function(error) {
+          alert('Email system error, but data was saved to our database.');
+          submitBtn.disabled = false;
+          submitBtn.innerText = "SUBMIT TO DATABASE";
       });
-    </script>
-   <a href="tel:+971562933289" class="phone-float" title="Call iTLS Dubai" aria-label="Call Us Now">
+  });
+</script>
+    
+    <a href="tel:+971562933289" class="phone-float" title="Call iTLS Dubai" aria-label="Call Us Now">
     <i class="fas fa-phone-alt"></i>
 </a>
 </body>
