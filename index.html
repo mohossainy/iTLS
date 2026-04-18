@@ -381,18 +381,28 @@
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
 
-    // تحويل البيانات لصيغة يفهمها EmailJS وجوجل معاً
+    // استخراج البيانات يدوياً لضمان توافقها مع جوجل و EmailJS
     const formData = new FormData(form);
 
-    // 1. الإرسال لـ Google Sheets
-    fetch(scriptURL, { method: 'POST', body: formData})
-      .then(response => console.log('Success: Saved to Sheets'))
-      .catch(error => console.error('Sheet Error:', error.message));
+    // 1. الإرسال لـ Google Sheets (تأكد أن الرابط أدناه هو الأحدث من Deployment)
+    fetch(scriptURL, { method: 'POST', body: formData })
+      .then(response => {
+          console.log('Success: Saved to Sheets');
+          
+          // 2. بعد نجاح الحفظ في الشيت، نرسل الإيميل فوراً عبر EmailJS
+          // نستخدم object يحتوي على البيانات بدلاً من إرسال الـ form مباشرة لضمان الدقة
+          const templateParams = {
+              name: form.name.value,
+              email: form.email.value,
+              phone: form.phone.value,
+              service_type: form.service_type.value,
+              cargo_details: form.cargo_details.value
+          };
 
-    // 2. الإرسال للإيميل عبر EmailJS
-    emailjs.sendForm('service_pwjm2tw', 'template_6xmtw99', form)
+          return emailjs.send('service_pwjm2tw', 'template_6xmtw99', templateParams);
+      })
       .then(function() {
-          console.log('Email Sent Successfully!');
+          console.log('Success: Email Sent!');
           document.getElementById('quote-form').classList.add('d-none');
           document.getElementById('quote-success').classList.remove('d-none');
           
@@ -409,9 +419,10 @@
                   submitBtn.innerText = "SUBMIT TO DATABASE";
               }, 500);
           }, 3000);
-      }, function(error) {
-          console.log('Email Failed:', error);
-          alert('Error in sending. Please check your internet or keys.');
+      })
+      .catch(error => {
+          console.error('Final Error:', error);
+          alert('System error. Please ensure the Google Script is deployed as "Anyone".');
           submitBtn.disabled = false;
           submitBtn.innerText = "SUBMIT TO DATABASE";
       });
