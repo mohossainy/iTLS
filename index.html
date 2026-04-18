@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>iTLS Dubai | Freight from UAE to Worldwide | Air, Sea, Land</title>
+<title>iTLS Dubai | Freight & Logistics Solutions UAE to Worldwide</title>
 
-<meta name="description" content="iTLS Dubai provides reliable freight services from UAE to worldwide. Air, Sea & Land shipping with competitive rates. Get your quote today.">
-<meta name="keywords" content="freight UAE, shipping Dubai to world, air freight UAE, sea freight Dubai, logistics UAE">
+<meta name="description" content="iTLS Dubai offers air, sea and land freight from UAE to worldwide destinations. Fast, reliable and cost-effective logistics solutions.">
+<meta name="keywords" content="freight UAE, logistics Dubai, shipping UAE to world, air freight UAE, sea freight Dubai">
 
 <link rel="preconnect" href="https://images.unsplash.com">
 
@@ -15,47 +15,52 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
-:root { --main-blue:#0D203D; --main-orange:#B35B2D; --dark-overlay:rgba(13,32,61,0.85); }
+:root { --main-blue:#0D203D; --main-orange:#B35B2D; --dark-overlay: rgba(13,32,61,0.85); }
 
-body { font-family:Segoe UI; scroll-behavior:smooth; overflow-x:hidden; }
-[lang="ar"] { direction:rtl; text-align:right; }
+body { font-family:'Segoe UI'; scroll-behavior:smooth; overflow-x:hidden; }
+[lang="ar"] { direction: rtl; text-align: right; }
 
-.navbar { border-bottom:4px solid var(--main-blue); }
-.nav-link { font-weight:800; }
+/* NAV */
+.navbar { background:#fff !important; border-bottom:4px solid var(--main-blue); }
+.nav-link { font-weight:800; color:var(--main-blue)!important; }
 
-.hero {
- background:linear-gradient(var(--dark-overlay),var(--dark-overlay)),
- url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1600&q=80');
- background-size:cover;
- padding:130px 0;
- color:white;
- text-align:center;
+/* HERO */
+.hero{
+background:linear-gradient(var(--dark-overlay),var(--dark-overlay)),
+url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+color:#fff;
+padding:130px 0;
+text-align:center;
 }
 
-.itls-title { font-size:5rem; color:var(--main-orange); font-weight:900; }
+.itls-title { font-size:6rem; color:var(--main-orange); font-weight:900; }
+.hero h2 { font-size:2.5rem; font-weight:800; }
 
+/* Sections */
 .section-padding { padding:90px 0; }
-
 .section-title { color:var(--main-blue); font-weight:800; text-align:center; }
-
 .orange-line { width:70px;height:5px;background:var(--main-orange);margin:20px auto; }
 
-.whatsapp {
- position:fixed;
- bottom:30px;
- right:30px;
- width:65px;
- height:65px;
- background:#25d366;
- color:#fff;
- border-radius:50%;
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:32px;
- z-index:1000;
+/* WhatsApp */
+.whatsapp-float {
+position:fixed;
+bottom:35px;
+right:35px;
+width:65px;
+height:65px;
+background:#25d366;
+color:#fff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+z-index:1000;
 }
 
+/* تحسين موبايل */
 @media(max-width:768px){
 .itls-title{font-size:3rem;}
 .hero h2{font-size:1.6rem;}
@@ -65,14 +70,15 @@ body { font-family:Segoe UI; scroll-behavior:smooth; overflow-x:hidden; }
 
 <body lang="en">
 
-<!-- WhatsApp only -->
-<a href="https://wa.me/971562933289?text=Hello iTLS, I need a shipping quote from UAE to worldwide"
-class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+<!-- WhatsApp (الزر الوحيد) -->
+<a href="https://wa.me/971562933289?text=Hello iTLS, I need a quote for shipping from UAE to worldwide"
+class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
-<!-- NAV -->
-<nav class="navbar navbar-expand-lg bg-white sticky-top">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
 <div class="container">
-<a class="navbar-brand"><img src="tls logo.png" style="height:70px;"></a>
+
+<a class="navbar-brand"><img src="tls logo.png" style="height:80px;"></a>
 
 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
 <span class="navbar-toggler-icon"></span>
@@ -86,7 +92,7 @@ class="whatsapp"><i class="fab fa-whatsapp"></i></a>
 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
 </ul>
 
-<button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#quoteModal">
+<button class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#quoteModal">
 GET A QUOTE
 </button>
 
@@ -97,16 +103,19 @@ GET A QUOTE
 <!-- HERO -->
 <section class="hero">
 <div class="container">
+
 <span class="itls-title">iTLS</span>
 
-<h2>Freight Solutions from UAE to Worldwide</h2>
+<h2>
+Freight & Logistics Solutions from UAE to Worldwide
+</h2>
 
-<p class="mt-3">
-Air, Sea & Land Shipping with Competitive Rates & Fast Delivery
+<p class="mt-3 fs-5">
+Air, Sea & Land Shipping with Competitive Rates and Fast Delivery
 </p>
 
-<p style="font-size:14px;opacity:0.9;">
-✔ Fast Response | ✔ Global Network | ✔ Best Rates
+<p style="font-size:14px;opacity:.9;">
+✔ Fast Response | ✔ Global Network | ✔ Competitive Rates
 </p>
 
 </div>
@@ -115,23 +124,26 @@ Air, Sea & Land Shipping with Competitive Rates & Fast Delivery
 <!-- ABOUT -->
 <section id="about" class="section-padding">
 <div class="container text-center">
+
 <h3 class="section-title">The iTLS Advantage</h3>
 <hr class="orange-line">
 
-<p class="fs-5">
-We deliver reliable logistics solutions from UAE to global destinations with speed, transparency, and efficiency.
+<p class="fs-4 text-muted mx-auto" style="max-width:900px;">
+We connect UAE businesses to global markets with reliable and efficient logistics solutions.
 </p>
 
 </div>
 </section>
 
-<!-- WHY -->
+<!-- WHY (إضافة بدون كسر التصميم) -->
 <section class="section-padding text-center">
 <div class="container">
+
 <h3 class="section-title">Why Choose iTLS</h3>
 <hr class="orange-line">
 
-<div class="row">
+<div class="row mt-4">
+
 <div class="col-md-4">
 <h5>⚡ Fast Response</h5>
 <p>Reply within minutes via WhatsApp</p>
@@ -139,39 +151,42 @@ We deliver reliable logistics solutions from UAE to global destinations with spe
 
 <div class="col-md-4">
 <h5>🌍 Global Network</h5>
-<p>UAE to worldwide shipping experts</p>
+<p>UAE to worldwide logistics experts</p>
 </div>
 
 <div class="col-md-4">
 <h5>💰 Best Rates</h5>
 <p>Save up to 30% on shipping costs</p>
 </div>
-</div>
 
+</div>
 </div>
 </section>
 
-<!-- SERVICES -->
+<!-- SERVICES (نفس الهيكل بدون تغيير) -->
 <section id="services" class="section-padding bg-light">
 <div class="container text-center">
-<h3 class="section-title">Logistics Services</h3>
+
+<h3 class="section-title">Logistics Expertise</h3>
 <hr class="orange-line">
 
-<div class="row">
+<div class="row mt-4">
+
 <div class="col-md-4">
 <h5>Air Freight UAE to Worldwide</h5>
-<p>Fast delivery for urgent cargo</p>
+<p>Fast delivery for urgent shipments</p>
 </div>
 
 <div class="col-md-4">
 <h5>Sea Freight FCL & LCL</h5>
-<p>Cost-effective bulk shipping</p>
+<p>Cost-effective shipping for bulk cargo</p>
 </div>
 
 <div class="col-md-4">
 <h5>Land Transport GCC</h5>
-<p>Reliable regional transport</p>
+<p>Reliable regional transport network</p>
 </div>
+
 </div>
 
 </div>
@@ -180,6 +195,7 @@ We deliver reliable logistics solutions from UAE to global destinations with spe
 <!-- CONTACT -->
 <section id="contact" class="section-padding text-center">
 <div class="container">
+
 <h3 class="section-title">Contact Us</h3>
 <hr class="orange-line">
 
@@ -195,12 +211,12 @@ We deliver reliable logistics solutions from UAE to global destinations with spe
 <div class="modal-dialog modal-dialog-centered">
 <div class="modal-content p-4">
 
-<form id="form">
+<form>
 <input class="form-control mb-3" placeholder="Name" required>
 <input class="form-control mb-3" placeholder="Email" required>
 <textarea class="form-control mb-3" placeholder="Shipment details"></textarea>
 
-<button class="btn btn-dark w-100">Submit</button>
+<button class="btn btn-orange w-100">Submit</button>
 </form>
 
 </div>
