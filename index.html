@@ -7,6 +7,7 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.2/simple-lightbox.min.css">
     
     <style>
         :root { --main-blue: #0D203D; --main-orange: #B35B2D; --dark-overlay: rgba(13, 32, 61, 0.85); }
@@ -14,63 +15,45 @@
         [lang="ar"] { direction: rtl; text-align: right; }
 
         /* Navigation */
-        .top-bar { background: #f8f9fa; padding: 10px 0; border-bottom: 1px solid #eee; }
-        .lang-btn { color: var(--main-blue); font-weight: bold; cursor: pointer; border: 2px solid var(--main-blue); border-radius: 20px; padding: 2px 15px; background: none; }
         .navbar { background: #fff !important; padding: 12px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-bottom: 4px solid var(--main-blue); }
-        .navbar-brand img { height: 80px; width: auto; }
-        .nav-link { font-weight: 800; color: var(--main-blue) !important; text-transform: uppercase; margin: 0 12px; }
+        .navbar-brand img { height: 70px; }
+        .nav-link { font-weight: 700; color: var(--main-blue) !important; text-transform: uppercase; margin: 0 10px; }
 
         /* Hero */
         .hero { 
-            background: linear-gradient(var(--dark-overlay), var(--dark-overlay)), 
-            url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1600');
             background-size: cover; background-position: center; background-attachment: fixed;
-            color: white; padding: 130px 0; text-align: center;
+            color: white; padding: 120px 0; text-align: center;
         }
-        .itls-title { font-size: 6rem; color: var(--main-orange); font-weight: 900; line-height: 1; }
-        .hero h2 { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; }
+        .itls-title { font-size: 5.5rem; color: var(--main-orange); font-weight: 900; }
 
-        /* Sections */
-        .section-padding { padding: 90px 0; }
+        /* Sections Styling */
+        .section-padding { padding: 80px 0; }
         .section-title { color: var(--main-blue); font-weight: 800; text-transform: uppercase; text-align: center; }
-        .orange-line { width: 70px; height: 5px; background: var(--main-orange); border: none; margin: 20px auto; opacity: 1; }
+        .orange-line { width: 60px; height: 5px; background: var(--main-orange); border: none; margin: 20px auto; opacity: 1; }
 
-        /* Trading */
-        .trading-section { background: var(--main-blue); color: white; padding: 80px 0; }
-        .trading-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 35px; border-radius: 20px; height: 100%; transition: 0.3s; }
-        .trading-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-7px); }
+        /* Trading & Logistics Cards */
+        .trading-card { background: var(--main-blue); color: white; padding: 30px; border-radius: 15px; height: 100%; transition: 0.3s; }
+        .service-container { position: relative; height: 300px; border-radius: 15px; overflow: hidden; transition: 0.4s; cursor: pointer; }
+        .service-bg { position: absolute; width: 100%; height: 100%; background-size: cover; z-index: 1; }
+        .service-overlay { position: absolute; width: 100%; height: 100%; background: linear-gradient(transparent, rgba(13,32,61,0.9)); z-index: 2; }
+        .service-content { position: relative; z-index: 3; height: 100%; display: flex; align-items: flex-end; padding: 20px; color: white; }
 
-        /* Logistics Grid */
-        .service-container { position: relative; height: 350px; border-radius: 20px; overflow: hidden; margin-bottom: 25px; transition: 0.5s; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .service-container:hover { transform: translateY(-12px); }
-        .service-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: 1; }
-        .service-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(transparent, rgba(13,32,61,0.95)); z-index: 2; }
-        .service-content { position: relative; z-index: 3; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; color: white; }
+        /* Blog Card */
+        .blog-card { border: none; shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; border-radius: 15px; overflow: hidden; }
+        .blog-card:hover { transform: translateY(-5px); }
 
-        /* Details */
-        .detail-section { padding: 100px 0; border-bottom: 1px solid #eee; }
-        .detail-section:nth-child(even) { background-color: #fcfcfc; }
-        .feature-list { list-style: none; padding: 0; margin-top: 20px; }
-        .feature-list li { margin-bottom: 12px; font-weight: 600; display: flex; align-items: center; font-size: 1.1rem; }
-        .feature-list li i { color: var(--main-orange); margin: 0 15px; }
+        /* Map Container */
+        .map-container { height: 450px; border-radius: 20px; overflow: hidden; border: 5px solid #eee; }
 
-        /* UI Elements */
-        .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 35px; right: 35px; background: #25d366; color: white; border-radius: 50%; font-size: 35px; display: flex; align-items: center; justify-content: center; z-index: 1000; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .btn-orange { background: var(--main-orange); color: white; font-weight: 800; border-radius: 50px; padding: 14px 35px; border: none; transition: 0.3s; }
-        footer { background: #fff; padding: 60px 0; border-top: 5px solid var(--main-blue); text-align: center; }
+        /* Floating Elements */
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background: #25d366; color: white; border-radius: 50%; font-size: 30px; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .btn-orange { background: var(--main-orange); color: white; font-weight: 700; border-radius: 50px; padding: 12px 30px; border: none; }
     </style>
 </head>
 <body lang="en">
 
     <a href="https://wa.me/971562933289" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-    <div class="top-bar">
-        <div class="container text-end">
-            <button class="lang-btn" onclick="toggleLanguage()">
-                <i class="fas fa-globe me-1"></i> <span id="lang-text">العربية</span>
-            </button>
-        </div>
-    </div>
 
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
@@ -80,57 +63,38 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="#" data-en="Home" data-ar="الرئيسية">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about" data-en="About" data-ar="من نحن">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#trading" data-en="Trading" data-ar="التجارة">Trading</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services" data-en="Logistics" data-ar="اللوجستيات">Logistics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services" data-en="Services" data-ar="خدماتنا">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery" data-en="Gallery" data-ar="المعرض">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog" data-en="Insights" data-ar="المدونة">Insights</a></li>
                 </ul>
-                <button class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#quoteModal" data-en="GET A QUOTE" data-ar="طلب عرض سعر">GET A QUOTE</button>
+                <button class="btn btn-outline-dark me-2" onclick="toggleLanguage()">العربية</button>
+                <button class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#quoteModal" data-en="TRACKING" data-ar="تتبع الشحنة">TRACKING</button>
             </div>
         </div>
     </nav>
 
     <header class="hero">
         <div class="container">
-            <span class="itls-title">iTLS</span>
-            <h2 data-en="Integrated Trading & Logistics Solutions" data-ar="حلول التجارة والخدمات اللوجستية المتكاملة">Integrated Trading & Logistics Solutions</h2>
+            <h1 class="itls-title">iTLS</h1>
+            <h2 data-en="Integrated Trading & Logistics Solutions" data-ar="حلول التجارة واللوجستيات المتكاملة">Integrated Trading & Logistics Solutions</h2>
         </div>
     </header>
 
     <section id="about" class="section-padding">
         <div class="container text-center">
-            <h3 class="section-title" data-en="The iTLS Advantage" data-ar="ميزة iTLS الاستراتيجية">The iTLS Advantage</h3>
+            <h3 class="section-title" data-en="World-Class Efficiency" data-ar="كفاءة عالمية المستوى">World-Class Efficiency</h3>
             <hr class="orange-line">
-            <p class="fs-4 text-muted mx-auto" style="max-width: 900px;" data-en="We bridge the gap between global trading and complex logistics, engineering supply chains for maximum speed and total transparency." data-ar="نحن نربط الفجوة بين التجارة العالمية والخدمات اللوجستية المعقدة، عبر هندسة سلاسل إمداد تضمن أقصى سرعة وشفافية كاملة.">
-                We bridge the gap between global trading and complex logistics, engineering supply chains for maximum speed and total transparency.
-            </p>
+            <p class="fs-5 text-muted mx-auto" style="max-width: 800px;" data-en="Providing Dubai-based strategic logistics and global trading agency services to maximize your supply chain speed." data-ar="نقدم خدمات اللوجستيات الاستراتيجية والوكالة التجارية العالمية من دبي لتسريع سلاسل الإمداد الخاصة بك.">Providing Dubai-based strategic logistics and global trading agency services to maximize your supply chain speed.</p>
         </div>
     </section>
 
-    <section id="trading" class="trading-section">
-        <div class="container text-center">
-            <h3 class="section-title text-white" data-en="Trading Solutions" data-ar="حلول التجارة المتكاملة">Trading Solutions <hr class="orange-line"></h3>
-            <div class="row g-4 mt-2">
-                <div class="col-md-4">
-                    <div class="trading-card">
-                        <i class="fas fa-handshake mb-4" style="color:var(--main-orange); font-size: 3rem;"></i>
-                        <h4 data-en="Global Sourcing" data-ar="التوريد العالمي">Global Sourcing</h4>
-                        <p data-en="Strategic procurement across international markets." data-ar="التوريد الاستراتيجي عبر الأسواق الدولية.">Strategic procurement across international markets.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="trading-card">
-                        <i class="fas fa-file-contract mb-4" style="color:var(--main-orange); font-size: 3rem;"></i>
-                        <h4 data-en="Trade Compliance" data-ar="الامتثال التجاري">Trade Compliance</h4>
-                        <p data-en="Expert navigation of customs regulations." data-ar="إدارة خبيرة لأنظمة التخليص الجمركي.">Expert navigation of customs regulations.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="trading-card">
-                        <i class="fas fa-boxes-packing mb-4" style="color:var(--main-orange); font-size: 3rem;"></i>
-                        <h4 data-en="Supply Chain Agency" data-ar="وكالة سلاسل الإمداد">Supply Chain Agency</h4>
-                        <p data-en="Your Dubai partner for local distribution." data-ar="شريكك في دبي لعمليات التوزيع المحلي.">Your Dubai partner for local distribution.</p>
-                    </div>
-                </div>
+    <section id="trading" class="section-padding bg-dark text-white">
+        <div class="container">
+            <h3 class="section-title text-white" data-en="Trading Agency" data-ar="الوكالة التجارية">Trading Agency <hr class="orange-line"></h3>
+            <div class="row g-4 text-center">
+                <div class="col-md-4"><div class="trading-card"><i class="fas fa-ship fa-2x mb-3 text-warning"></i><h4 data-en="Sourcing" data-ar="التوريد">Sourcing</h4></div></div>
+                <div class="col-md-4"><div class="trading-card"><i class="fas fa-file-invoice fa-2x mb-3 text-warning"></i><h4 data-en="Compliance" data-ar="الامتثال">Compliance</h4></div></div>
+                <div class="col-md-4"><div class="trading-card"><i class="fas fa-globe fa-2x mb-3 text-warning"></i><h4 data-en="Global Network" data-ar="شبكة عالمية">Global Network</h4></div></div>
             </div>
         </div>
     </section>
@@ -139,206 +103,122 @@
         <div class="container">
             <h3 class="section-title" data-en="Logistics Expertise" data-ar="الخبرة اللوجستية">Logistics Expertise <hr class="orange-line"></h3>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6"><a href="#air-detail" class="text-decoration-none">
+                <div class="col-md-3"><a href="#air-detail" class="text-decoration-none">
                     <div class="service-container">
-                        <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=800&q=80');"></div>
+                        <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=400');"></div>
                         <div class="service-overlay"></div>
-                        <div class="service-content"><h5 data-en="AIR FREIGHT" data-ar="الشحن الجوي">AIR FREIGHT</h5></div>
+                        <div class="service-content"><h5>AIR FREIGHT</h5></div>
                     </div>
                 </a></div>
-                <div class="col-lg-3 col-md-6"><a href="#ocean-detail" class="text-decoration-none">
-                    <div class="service-container">
-                        <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=800&q=80');"></div>
-                        <div class="service-overlay"></div>
-                        <div class="service-content"><h5 data-en="OCEAN FREIGHT" data-ar="الشحن البحري">OCEAN FREIGHT</h5></div>
-                    </div>
-                </a></div>
-                <div class="col-lg-3 col-md-6"><a href="#land-detail" class="text-decoration-none">
-                    <div class="service-container">
-                        <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80');"></div>
-                        <div class="service-overlay"></div>
-                        <div class="service-content"><h5 data-en="LAND FREIGHT" data-ar="الشحن البري">LAND FREIGHT</h5></div>
-                    </div>
-                </a></div>
-                <div class="col-lg-3 col-md-6"><a href="#charter-detail" class="text-decoration-none">
-                    <div class="service-container">
-                        <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1559139225-421502da1307?auto=format&fit=crop&w=800&q=80');"></div>
-                        <div class="service-overlay"></div>
-                        <div class="service-content"><h5 data-en="VESSEL CHARTER" data-ar="استئجار السفن">VESSEL CHARTER</h5></div>
-                    </div>
-                </a></div>
+                <div class="col-md-3"><a href="#ocean-detail" class="text-decoration-none"><div class="service-container"><div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1494412519320-aa613dfb7738?w=400');"></div><div class="service-overlay"></div><div class="service-content"><h5>OCEAN FREIGHT</h5></div></div></a></div>
+                <div class="col-md-3"><a href="#land-detail" class="text-decoration-none"><div class="service-container"><div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=400');"></div><div class="service-overlay"></div><div class="service-content"><h5>LAND FREIGHT</h5></div></div></a></div>
+                <div class="col-md-3"><a href="#charter-detail" class="text-decoration-none"><div class="service-container"><div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1559139225-421502da1307?w=400');"></div><div class="service-overlay"></div><div class="service-content"><h5>VESSEL CHARTER</h5></div></div></a></div>
             </div>
         </div>
     </section>
 
-    <div id="details-all">
-        <section id="air-detail" class="detail-section"><div class="container"><div class="row align-items-center">
-            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg"></div>
-            <div class="col-lg-6 ps-lg-5">
-                <h3 data-en="Air Freight Solutions" data-ar="حلول الشحن الجوي">Air Freight Solutions</h3>
-                <ul class="feature-list">
-                    <li data-en="Global Door-to-Door Express" data-ar="خدمة من الباب للباب عالمياً"><i class="fas fa-check-circle"></i> Global Door-to-Door Express</li>
-                    <li data-en="Time-Critical Shipments" data-ar="الشحنات العاجلة والحساسة للوقت"><i class="fas fa-check-circle"></i> Time-Critical Shipments</li>
-                </ul>
-            </div>
-        </div></div></section>
-
-        <section id="ocean-detail" class="detail-section"><div class="container"><div class="row align-items-center flex-lg-row-reverse">
-            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg"></div>
-            <div class="col-lg-6 pe-lg-5">
-                <h3 data-en="Ocean Intelligence" data-ar="ذكاء الشحن البحري">Ocean Intelligence</h3>
-                <ul class="feature-list">
-                    <li data-en="FCL & LCL Optimization" data-ar="تحسين مسارات الحاويات"><i class="fas fa-check-circle"></i> FCL & LCL Optimization</li>
-                    <li data-en="Port-to-Port Expertise" data-ar="الخبرة من ميناء إلى ميناء"><i class="fas fa-check-circle"></i> Port-to-Port Expertise</li>
-                </ul>
-            </div>
-        </div></div></section>
-
-        <section id="land-detail" class="detail-section"><div class="container"><div class="row align-items-center">
-            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg"></div>
-            <div class="col-lg-6 ps-lg-5">
-                <h3 data-en="Land Transportation" data-ar="النقل البري">Land Transportation</h3>
-                <ul class="feature-list">
-                    <li data-en="Cross-Border Trucking" data-ar="النقل البري عبر الحدود"><i class="fas fa-check-circle"></i> Cross-Border Trucking</li>
-                    <li data-en="Reliable Road Network" data-ar="شبكة طرق موثوقة"><i class="fas fa-check-circle"></i> Reliable Road Network</li>
-                </ul>
-            </div>
-        </div></div></section>
-
-        <section id="charter-detail" class="detail-section"><div class="container"><div class="row align-items-center flex-lg-row-reverse">
-            <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1559139225-421502da1307?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-lg"></div>
-            <div class="col-lg-6 pe-lg-5">
-                <h3 data-en="Vessel Chartering" data-ar="استئجار السفن">Vessel Chartering</h3>
-                <ul class="feature-list">
-                    <li data-en="Bulk & Project Cargo" data-ar="البضائع السائبة والمشاريع"><i class="fas fa-check-circle"></i> Bulk & Project Cargo</li>
-                    <li data-en="Full Vessel Management" data-ar="إدارة كاملة للسفن المستأجرة"><i class="fas fa-check-circle"></i> Full Vessel Management</li>
-                </ul>
-            </div>
-        </div></div></section>
-    </div>
-
-    <section id="contact" class="section-padding bg-white">
+    <section id="gallery" class="section-padding">
         <div class="container">
-            <h3 class="section-title" data-en="Strategic Connection" data-ar="تواصل استراتيجي">Strategic Connection <hr class="orange-line"></h3>
-            <div class="row g-5">
-                <div class="col-lg-5">
-                    <div style="background: var(--main-blue); color: white; padding: 45px; border-radius: 25px;">
-                        <h4>iTLS Dubai</h4>
-                        <p class="mt-4"><i class="fas fa-phone-alt me-3"></i> +971 56 293 3289</p>
-                        <p><i class="fas fa-envelope me-3"></i> itls.dxb@gmail.com</p>
-                        <p><i class="fas fa-map-marker-alt me-3"></i> Dubai, UAE</p>
+            <h3 class="section-title" data-en="Operational Gallery" data-ar="معرض العمليات">Operational Gallery <hr class="orange-line"></h3>
+            <div class="row g-3 gallery-list">
+                <div class="col-md-4"><a href="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400" class="img-fluid rounded shadow-sm"></a></div>
+                <div class="col-md-4"><a href="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=400" class="img-fluid rounded shadow-sm"></a></div>
+                <div class="col-md-4"><a href="https://images.unsplash.com/photo-1473445730015-841f29a9490b?w=800"><img src="https://images.unsplash.com/photo-1473445730015-841f29a9490b?w=400" class="img-fluid rounded shadow-sm"></a></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="map" class="section-padding bg-light">
+        <div class="container text-center">
+            <h3 class="section-title" data-en="Global Presence" data-ar="تواجدنا العالمي">Global Presence <hr class="orange-line"></h3>
+            <div class="map-container mt-4">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m1!1d3609.43577319!2d55.2707!3d25.2048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a6d!2sDubai!5e0!3m2!1sen!2sae!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="section-padding">
+        <div class="container">
+            <h3 class="section-title" data-en="Industry Insights" data-ar="رؤى الصناعة">Industry Insights <hr class="orange-line"></h3>
+            <div class="row g-4 mt-2">
+                <div class="col-md-6">
+                    <div class="card blog-card shadow-sm h-100 p-4">
+                        <span class="text-orange fw-bold mb-2">Logistics 2026</span>
+                        <h4>The Future of Dubai Logistics</h4>
+                        <p class="text-muted">How AI is changing the supply chain speed in Jebel Ali Port...</p>
+                        <a href="#" class="text-decoration-none fw-bold" style="color:var(--main-orange)">Read More →</a>
                     </div>
-                </div>
-                <div class="col-lg-7 text-center pt-lg-5">
-                    <button class="btn btn-orange px-5 py-4 fs-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#quoteModal" data-en="START YOUR INQUIRY" data-ar="ابدأ استفسارك الآن">START YOUR INQUIRY</button>
-                    <p class="mt-3 text-muted" data-en="Connect with our global trade experts today." data-ar="تواصل مع خبراء التجارة العالميين لدينا اليوم.">Connect with our global trade experts today.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <footer id="contact" class="bg-dark text-white section-padding text-center">
+        <div class="container">
+            <h3>iTLS Dubai</h3>
+            <p class="mt-3"><i class="fas fa-phone me-2"></i> +971 56 293 3289 | <i class="fas fa-envelope ms-3 me-2"></i> itls.dxb@gmail.com</p>
+            <hr class="bg-secondary my-4">
+            <button class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#quoteModal">GET A STRATEGIC QUOTE</button>
+            <p class="mt-4 small opacity-50">© 2026 iTLS. Integrated Trading & Logistics.</p>
+        </div>
+    </footer>
 
     <div class="modal fade" id="quoteModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content border-0 rounded-4 shadow-lg">
-                <div class="modal-header text-white" style="background: var(--main-blue); padding: 25px;">
-                    <h5 class="modal-title fw-bold" data-en="Get a Strategic Quote" data-ar="احصل على عرض سعر استراتيجي">Get a Strategic Quote</h5>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title">Strategic Inquiry</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body p-4 p-md-5">
-                    <div id="quote-success" class="alert alert-success d-none text-center py-4">
-                        <i class="fas fa-check-circle fs-1 mb-2"></i>
-                        <h4 data-en="Success!" data-ar="تم بنجاح!">Success!</h4>
-                        <p data-en="Your data has been saved to our database." data-ar="تم حفظ بياناتك في قاعدة بياناتنا بنجاح.">Your data has been saved to our database.</p>
-                    </div>
-                    <form id="quote-form" class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label fw-bold">Name / الاسم</label>
-                            <input type="text" name="name" class="form-control form-control-lg border-2" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label fw-bold">Email / البريد</label>
-                            <input type="email" name="email" class="form-control form-control-lg border-2" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label fw-bold">Phone / الهاتف</label>
-                            <input type="tel" name="phone" class="form-control form-control-lg border-2" placeholder="+971..." required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label fw-bold">Service / الخدمة</label>
-                            <select name="service_type" class="form-select form-control-lg border-2">
-                                <option value="Air Freight">Air Freight</option>
-                                <option value="Ocean Freight">Ocean Freight</option>
-                                <option value="Land Transport">Land Transport</option>
-                                <option value="Trading">Trading</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label fw-bold">Details / التفاصيل</label>
-                            <textarea name="cargo_details" class="form-control border-2" rows="3" required></textarea>
-                        </div>
-                        <div class="col-12 mt-4">
-                            <button type="submit" id="submit-btn" class="btn btn-orange w-100 py-3 fs-5">
-                                <span data-en="SUBMIT TO DATABASE" data-ar="إرسال لقاعدة البيانات">SUBMIT TO DATABASE</span>
-                            </button>
-                        </div>
+                <div class="modal-body p-4">
+                    <div id="quote-success" class="alert alert-success d-none">Data saved to iTLS Database!</div>
+                    <form id="quote-form">
+                        <input type="text" name="name" class="form-control mb-3" placeholder="Name" required>
+                        <input type="email" name="email" class="form-control mb-3" placeholder="Email" required>
+                        <input type="tel" name="phone" class="form-control mb-3" placeholder="Phone" required>
+                        <textarea name="cargo_details" class="form-control mb-3" placeholder="Inquiry/Cargo Details"></textarea>
+                        <button type="submit" id="submit-btn" class="btn btn-orange w-100">SUBMIT TO DATABASE</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <img src="tls logo.png" style="height: 65px; margin-bottom: 20px;">
-        <p>© 2026 iTLS Dubai. Integrated Excellence.</p>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.2/simple-lightbox.min.js"></script>
     <script>
-      function toggleLanguage() {
-          const html = document.getElementById('html-tag');
-          const langText = document.getElementById('lang-text');
-          const currentLang = html.getAttribute('lang');
-          const newLang = currentLang === 'en' ? 'ar' : 'en';
-          html.setAttribute('lang', newLang);
-          langText.innerText = newLang === 'en' ? 'العربية' : 'English';
-          document.querySelectorAll('[data-en]').forEach(el => {
-              el.innerText = el.getAttribute('data-' + newLang);
-          });
-      }
+        // Gallery Initialization
+        new SimpleLightbox('.gallery-list a');
 
-      // الربط النهائي بـ Google Sheets
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzR9P6_0enx8Z46q4-VlmhqoXiR6H4rlEYfrtlp4cQOrvs2Y5qKi526VZ92rfDz3sSc/exec';
-      const form = document.getElementById('quote-form');
+        function toggleLanguage() {
+            const h = document.getElementById('html-tag');
+            const l = h.getAttribute('lang') === 'en' ? 'ar' : 'en';
+            h.setAttribute('lang', l);
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.innerText = el.getAttribute('data-' + l);
+            });
+        }
 
-      form.addEventListener('submit', e => {
-          e.preventDefault();
-          const submitBtn = document.getElementById('submit-btn');
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Processing...';
+        // Database Connection (The Script Link you verified)
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzR9P6_0enx8Z46q4-VlmhqoXiR6H4rlEYfrtlp4cQOrvs2Y5qKi526VZ92rfDz3sSc/exec';
+        const form = document.getElementById('quote-form');
 
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.disabled = true; btn.innerText = "Processing...";
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(res => {
                 document.getElementById('quote-form').classList.add('d-none');
                 document.getElementById('quote-success').classList.remove('d-none');
-                setTimeout(() => {
-                    const modalEl = document.getElementById('quoteModal');
-                    const modalInstance = bootstrap.Modal.getInstance(modalEl);
-                    if(modalInstance) modalInstance.hide();
-                    setTimeout(() => {
-                        document.getElementById('quote-form').reset();
-                        document.getElementById('quote-form').classList.remove('d-none');
-                        document.getElementById('quote-success').classList.add('add-none');
-                        submitBtn.disabled = false;
-                        submitBtn.innerText = "SUBMIT TO DATABASE";
-                    }, 500);
-                }, 3000);
+                setTimeout(() => location.reload(), 2500);
             })
-            .catch(error => {
-                alert('Database Connection Error. Ensure Script is Deployed as "Anyone".');
-                submitBtn.disabled = false;
-                submitBtn.innerText = "SUBMIT TO DATABASE";
+            .catch(err => {
+                alert("Database Error. Please try again.");
+                btn.disabled = false; btn.innerText = "SUBMIT TO DATABASE";
             });
-      });
+        });
     </script>
 </body>
 </html>
