@@ -371,7 +371,8 @@
 </script>
 
 <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxp3qo88aEqrV3l2W6fre0C71_2PKhMp9gM9EzozuewT_roBibYXfliZOn2xzbBv7c/exec'; 
+  // تأكد أن هذا الرابط هو أحدث رابط Deployment من جوجل
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzpN0p7qX96S_h9u_2iS6_h-O-U_zV689K_u9-zV-G1_H_K_G-G/exec'; 
   const form = document.forms['google-sheet'];
 
   form.addEventListener('submit', e => {
@@ -380,15 +381,18 @@
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
 
-    // 1. الإرسال الفوري لـ Google Sheets
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Data logged to Google Sheets'))
+    // تحويل البيانات لصيغة يفهمها EmailJS وجوجل معاً
+    const formData = new FormData(form);
+
+    // 1. الإرسال لـ Google Sheets
+    fetch(scriptURL, { method: 'POST', body: formData})
+      .then(response => console.log('Success: Saved to Sheets'))
       .catch(error => console.error('Sheet Error:', error.message));
 
-    // 2. الإرسال المباشر للإيميل عبر EmailJS
+    // 2. الإرسال للإيميل عبر EmailJS
     emailjs.sendForm('service_pwjm2tw', 'template_6xmtw99', form)
       .then(function() {
-          // إظهار واجهة النجاح
+          console.log('Email Sent Successfully!');
           document.getElementById('quote-form').classList.add('d-none');
           document.getElementById('quote-success').classList.remove('d-none');
           
@@ -406,13 +410,13 @@
               }, 500);
           }, 3000);
       }, function(error) {
-          alert('Email system error, but data was saved to our database.');
+          console.log('Email Failed:', error);
+          alert('Error in sending. Please check your internet or keys.');
           submitBtn.disabled = false;
           submitBtn.innerText = "SUBMIT TO DATABASE";
       });
   });
-</script>
-    
+</script>    
     <a href="tel:+971562933289" class="phone-float" title="Call iTLS Dubai" aria-label="Call Us Now">
     <i class="fas fa-phone-alt"></i>
 </a>
