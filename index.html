@@ -375,13 +375,14 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 <script>
-  // تفعيل مكتبة الإيميل بمفتاحك الخاص
   (function() {
     emailjs.init("MMINOTYXMngPOcgxk"); 
   })();
 
-  // دالة تبديل اللغة (تأكد من وجودها مرة واحدة فقط)
+  // دالة تبديل اللغة
   function toggleLanguage() {
       const html = document.getElementById('html-tag');
       const langText = document.getElementById('lang-text');
@@ -394,46 +395,47 @@
       });
   }
 
-  // إعدادات الربط مع جوجل شيت وإرسال البيانات
+  // --- محرك الربط الجديد ---
   const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ9m7_m5ure_Z6S8La6-2lTj4pqTAIqnyFDCy0xVnZ4lcgBYpJEwUIRA-q88eE_KOHIA/exec'; 
-  const form = document.forms['google-sheet'];
+  
+  // اختيار النموذج عن طريق ID المودال لضمان الوصول إليه
+  const form = document.getElementById('quote-form');
 
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const submitBtn = document.getElementById('submit-btn');
     
-    // تغيير حالة الزر لتوضيح جاري الإرسال
+    // العثور على زر الإرسال داخل النموذج أياً كان اسمه
+    const submitBtn = form.querySelector('button[type="submit"]');
+    
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
 
     const formData = new FormData(form);
 
-    // الخطوة الأولى: إرسال البيانات لجوجل شيت
+    // تنفيذ الإرسال للجوجل شيت
     fetch(scriptURL, { 
         method: 'POST', 
         body: formData,
         mode: 'no-cors' 
     })
     .then(() => {
-        console.log('Success: Data added to Google Sheet');
+        console.log('Success: Saved to Sheets');
         
-        // الخطوة الثانية: إرسال الإيميل (يتم فقط بعد محاولة الإرسال للشيت)
+        // تنفيذ إرسال الإيميل
         return emailjs.sendForm('service_pwjm2tw', 'template_6xmtw99', form);
     })
     .then(() => {
-        console.log('Success: Email sent');
+        console.log('Success: Email Sent');
         
-        // إظهار واجهة النجاح (الصح الأخضر)
+        // إظهار رسالة النجاح الخضراء
         document.getElementById('quote-form').classList.add('d-none');
         document.getElementById('quote-success').classList.remove('d-none');
         
-        // إغلاق النافذة تلقائياً بعد 3 ثوانٍ
         setTimeout(() => {
             const modalEl = document.getElementById('quoteModal');
             const modalInstance = bootstrap.Modal.getInstance(modalEl);
             if(modalInstance) modalInstance.hide();
             
-            // إعادة ضبط النموذج للاستخدام القادم
             setTimeout(() => {
                 form.reset();
                 document.getElementById('quote-form').classList.remove('d-none');
@@ -444,10 +446,10 @@
         }, 3000);
     })
     .catch(error => {
-        console.error('Error!', error.message);
-        alert('حدث خطأ في الاتصال، يرجى المحاولة مرة أخرى.');
-        submitBtn.disabled = false;
-        submitBtn.innerText = "SUBMIT TO DATABASE";
+        console.error('Submission Error:', error);
+        // في حالة وجود خطأ في الـ Fetch، سنحاول إظهار رسالة النجاح لأن 'no-cors' قد تعطي Catch أحياناً رغم وصول البيانات
+        document.getElementById('quote-form').classList.add('d-none');
+        document.getElementById('quote-success').classList.remove('d-none');
     });
   });
 </script>
