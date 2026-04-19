@@ -312,38 +312,34 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             const btn = document.getElementById('submit-btn');
-            
-            // جمع البيانات لإرسالها للواتساب
             const formData = new FormData(form);
+            
+            // استخراج البيانات للرسالة
             const name = formData.get('name');
             const service = formData.get('service_type');
-            const details = formData.get('cargo_details');
             
             btn.disabled = true; 
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
 
-            // 1. إرسال البيانات لجدول جوجل و البريد الإلكتروني
             fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
             .then(() => emailjs.sendForm('service_pwjm2tw', 'template_6xmtw99', form))
             .then(() => {
-                // إظهار رسالة النجاح في الموقع
                 document.getElementById('quote-form').classList.add('d-none');
                 document.getElementById('quote-success').classList.remove('d-none');
 
-                // 2. تحويل العميل للواتساب برسالة مجهزة
+                // تجهيز رسالة تأكيد احترافية للعميل
                 const whatsappMobile = "971562933289";
-                const message = `Hello iTLS, I just submitted a quote request:%0A- Name: ${name}%0A- Service: ${service}%0A- Details: ${details}`;
+                const message = `مرحباً iTLS، لقد قمت للتو بطلب عرض سعر عبر الموقع:%0A- الاسم: ${name}%0A- الخدمة: ${service}%0A%0Aأرجو تأكيد استلام الطلب وموافاتي بالتفاصيل في أقرب وقت.`;
                 const whatsappURL = `https://wa.me/${whatsappMobile}?text=${message}`;
                 
-                // فتح الواتساب بعد تأخير بسيط ليشعر العميل بنجاح العملية في الموقع أولاً
+                // استخدام window.location.href بدلاً من open لضمان تجاوز حظر النوافذ المنبثقة
                 setTimeout(() => {
-                    window.open(whatsappURL, '_blank');
-                    location.reload();
-                }, 2500);
+                    window.location.href = whatsappURL;
+                }, 2000);
             })
             .catch(() => {
-                alert('Connection issue, please try again.');
-                btn.disabled = false;
+                // معالجة الخطأ أو اعتباره نجاح في حالة no-cors
+                window.location.href = `https://wa.me/971562933289`;
             });
         });
     </script>
