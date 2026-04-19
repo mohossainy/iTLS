@@ -312,20 +312,38 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             const btn = document.getElementById('submit-btn');
-            btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            
+            // جمع البيانات لإرسالها للواتساب
+            const formData = new FormData(form);
+            const name = formData.get('name');
+            const service = formData.get('service_type');
+            const details = formData.get('cargo_details');
+            
+            btn.disabled = true; 
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+            // 1. إرسال البيانات لجدول جوجل و البريد الإلكتروني
+            fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
             .then(() => emailjs.sendForm('service_pwjm2tw', 'template_6xmtw99', form))
             .then(() => {
+                // إظهار رسالة النجاح في الموقع
                 document.getElementById('quote-form').classList.add('d-none');
                 document.getElementById('quote-success').classList.remove('d-none');
-                setTimeout(() => location.reload(), 3500);
+
+                // 2. تحويل العميل للواتساب برسالة مجهزة
+                const whatsappMobile = "971562933289";
+                const message = `Hello iTLS, I just submitted a quote request:%0A- Name: ${name}%0A- Service: ${service}%0A- Details: ${details}`;
+                const whatsappURL = `https://wa.me/${whatsappMobile}?text=${message}`;
+                
+                // فتح الواتساب بعد تأخير بسيط ليشعر العميل بنجاح العملية في الموقع أولاً
+                setTimeout(() => {
+                    window.open(whatsappURL, '_blank');
+                    location.reload();
+                }, 2500);
             })
             .catch(() => {
-                // في حالة الـ no-cors، غالباً تصل البيانات ولكن المتصفح يعطي خطأ، لذا سنظهر النجاح
-                document.getElementById('quote-form').classList.add('d-none');
-                document.getElementById('quote-success').classList.remove('d-none');
-                setTimeout(() => location.reload(), 3500);
+                alert('Connection issue, please try again.');
+                btn.disabled = false;
             });
         });
     </script>
