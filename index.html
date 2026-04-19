@@ -314,40 +314,44 @@ form.addEventListener('submit', e => {
             const btn = document.getElementById('submit-btn');
             const formData = new FormData(form);
             
-            // استخراج البيانات لتضمينها في الرسالة
+            // استخراج البيانات بدقة لتضمينها في رسالة الواتساب
             const name = formData.get('name');
+            const phone = formData.get('phone');
             const service = formData.get('service_type');
             const details = formData.get('cargo_details');
             
             btn.disabled = true; 
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
 
+            // 1. إرسال البيانات لجدول جوجل و البريد الإلكتروني
             fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
             .then(() => emailjs.sendForm('service_pwjm2tw', 'template_6xmtw99', form))
             .then(() => {
+                // إظهار رسالة النجاح في الموقع
                 document.getElementById('quote-form').classList.add('d-none');
                 document.getElementById('quote-success').classList.remove('d-none');
 
-                // صياغة الرسالة بالعربي والإنجليزي
+                // 2. صياغة الرسالة الموجهة لـ iTLS (عربي/إنجليزي) كما طلبت
                 const whatsappMobile = "971562933289";
-                const message = `*iTLS - Inquiry Confirmation*%0A%0A` +
-                                `تم استلام طلبكم عبر الموقع بخصوص:%0A"${details}"%0A` +
-                                `سيتم التواصل معكم في أقرب وقت ممكن.%0A%0A` +
-                                `Your request regarding:%0A"${details}"%0A` +
-                                `has been received. We will contact you shortly.%0A%0A` +
-                                `*Name/الاسم:* ${name}%0A` +
-                                `*Service/الخدمة:* ${service}`;
+                const message = `مرحباً iTLS، لقد قمت للتو بطلب عرض سعر عبر الموقع:%0A` +
+                                `Hello iTLS, I just submitted a quote request via the website:%0A%0A` +
+                                `*الاسم / Name:* ${name}%0A` +
+                                `*الخدمة / Service:* ${service}%0A` +
+                                `*الهاتف / Phone:* ${phone}%0A` +
+                                `*التفاصيل / Details:* ${details}%0A%0A` +
+                                `أرجو تأكيد استلام الطلب وموافاتي بالتفاصيل في أقرب وقت.%0A` +
+                                `Please confirm receipt and provide details as soon as possible.`;
 
                 const whatsappURL = `https://wa.me/${whatsappMobile}?text=${message}`;
                 
-                // التوجيه التلقائي
+                // التوجيه للواتساب بعد 2 ثانية ليعلم العميل أن البيانات تم حفظها أولاً
                 setTimeout(() => {
                     window.location.href = whatsappURL;
                 }, 2000);
             })
             .catch(() => {
-                // في حالة وجود أي عائق تقني، يتم توجيه العميل للواتساب مباشرة لضمان عدم فقدانه
-                window.location.href = `https://wa.me/971562933289?text=Hello iTLS, I had an issue with the form. Name: ${formData.get('name')}`;
+                // في حالة وجود أي عائق، يتم التوجيه المباشر لضمان عدم ضياع العميل
+                window.location.href = `https://wa.me/971562933289`;
             });
         });
     </script>
