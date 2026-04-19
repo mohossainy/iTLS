@@ -309,14 +309,15 @@
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ9m7_m5ure_Z6S8La6-2lTj4pqTAIqnyFDCy0xVnZ4lcgBYpJEwUIRA-q88eE_KOHIA/exec';
         const form = document.getElementById('quote-form');
 
-        form.addEventListener('submit', e => {
+form.addEventListener('submit', e => {
             e.preventDefault();
             const btn = document.getElementById('submit-btn');
             const formData = new FormData(form);
             
-            // استخراج البيانات للرسالة
+            // استخراج البيانات لتضمينها في الرسالة
             const name = formData.get('name');
             const service = formData.get('service_type');
+            const details = formData.get('cargo_details');
             
             btn.disabled = true; 
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
@@ -327,19 +328,26 @@
                 document.getElementById('quote-form').classList.add('d-none');
                 document.getElementById('quote-success').classList.remove('d-none');
 
-                // تجهيز رسالة تأكيد احترافية للعميل
+                // صياغة الرسالة بالعربي والإنجليزي
                 const whatsappMobile = "971562933289";
-                const message = `مرحباً iTLS، لقد قمت للتو بطلب عرض سعر عبر الموقع:%0A- الاسم: ${name}%0A- الخدمة: ${service}%0A%0Aأرجو تأكيد استلام الطلب وموافاتي بالتفاصيل في أقرب وقت.`;
+                const message = `*iTLS - Inquiry Confirmation*%0A%0A` +
+                                `تم استلام طلبكم عبر الموقع بخصوص:%0A"${details}"%0A` +
+                                `سيتم التواصل معكم في أقرب وقت ممكن.%0A%0A` +
+                                `Your request regarding:%0A"${details}"%0A` +
+                                `has been received. We will contact you shortly.%0A%0A` +
+                                `*Name/الاسم:* ${name}%0A` +
+                                `*Service/الخدمة:* ${service}`;
+
                 const whatsappURL = `https://wa.me/${whatsappMobile}?text=${message}`;
                 
-                // استخدام window.location.href بدلاً من open لضمان تجاوز حظر النوافذ المنبثقة
+                // التوجيه التلقائي
                 setTimeout(() => {
                     window.location.href = whatsappURL;
                 }, 2000);
             })
             .catch(() => {
-                // معالجة الخطأ أو اعتباره نجاح في حالة no-cors
-                window.location.href = `https://wa.me/971562933289`;
+                // في حالة وجود أي عائق تقني، يتم توجيه العميل للواتساب مباشرة لضمان عدم فقدانه
+                window.location.href = `https://wa.me/971562933289?text=Hello iTLS, I had an issue with the form. Name: ${formData.get('name')}`;
             });
         });
     </script>
