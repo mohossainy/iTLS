@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" id="html-tag">
 <head>
-    <title>iTLS Dubai | Global Logistics & Strategic Trade Solutions</title>
     <title>iTLS Dubai | شركة شحن دولي ولوجستيات | Air, Sea & Land Freight</title>
-<meta name="description" content="iTLS شركة شحن موثوقة في دبي تقدم أرخص أسعار الشحن الدولي، التخليص الجمركي، وشحن البضائع من الباب للباب. متخصصون في الشحن الجوي والبحري والبري لجميع دول العالم.">
-<meta name="keywords" content="شركة شحن دولي, شحن بري, شحن بحري, شحن جوي, شركات نقل بضائع, أرخص شركة شحن, أسعار الشحن الدولي, تخليص جمركي, شحن من الباب للباب, شركات لوجستية, شحن حاويات, أفضل شركة شحن, شحن سريع, International Freight Forwarding Dubai">
-    <meta name="description" content="iTLS Dubai provides integrated logistics, freight forwarding, and strategic supply chain solutions. Expert global trade partners in the heart of the UAE.">
-    <meta name="keywords" content="iTLS Dubai, Logistics, Freight Forwarding, Supply Chain, Dubai Trade, Shipping UAE">
+    <meta name="description" content="iTLS شركة شحن موثوقة في دبي تقدم أرخص أسعار الشحن الدولي، التخليص الجمركي، وشحن البضائع من الباب للباب. متخصصون في الشحن الجوي والبحري والبري لجميع دول العالم.">
+    <meta name="keywords" content="شركة شحن دولي, شحن بري, شحن بحري, شحن جوي, شركات نقل بضائع, أرخص شركة شحن, أسعار الشحن الدولي, تخليص جمركي, شحن من الباب للباب, شركات لوجستية, شحن حاويات, أفضل شركة شحن, شحن سريع, iTLS Dubai, Logistics, Freight Forwarding, Supply Chain, Dubai Trade, Shipping UAE">
     <link rel="canonical" href="https://itls-dxb.onrender.com" />
 
     <meta property="og:type" content="website">
@@ -38,6 +35,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <style>
+        /* سأبقي على الـ CSS الرائع الذي وضعناه اللوجو يدور ويتحرك */
         :root { --main-blue: #0D203D; --main-orange: #B35B2D; --dark-overlay: rgba(13, 32, 61, 0.9); }
         body { font-family: 'Segoe UI', Roboto, sans-serif; scroll-behavior: smooth; color: #333; overflow-x: hidden; }
         [lang="ar"] { direction: rtl; text-align: right; }
@@ -69,71 +67,39 @@
 
         .detail-img { border-radius: 25px; width: 100%; box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
         footer { background: #fff; border-top: 5px solid var(--main-blue); padding: 50px 0; }
-        /* حركة اللوجو المتكاملة - iTLS Exclusive */
 
-/* 1. إعدادات اللوجو الأساسية */
-.navbar-brand img {
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    animation: 
-        logoEntrance 1.2s ease-out forwards, /* حركة الظهور عند الفتح */
-        logoRotate 8s infinite ease-in-out;   /* حركة الدوران الدوري كل 8 ثوانٍ */
-    backface-visibility: hidden;
-}
-
-/* 2. حركة التكبير والتميز عند مرور الماوس */
-.navbar-brand img:hover {
-    transform: scale(1.15) !important; /* يكبر اللوجو عند الإشارة إليه */
-    filter: drop-shadow(0 5px 15px rgba(179, 91, 45, 0.4)); /* إضافة توهج برتقالي خفيف */
-    animation-play-state: paused; /* إيقاف الدوران التلقائي عند التفاعل معه */
-}
-
-/* 3. تأثير الظهور من الأعلى عند تحميل الصفحة */
-@keyframes logoEntrance {
-    from { 
-        opacity: 0; 
-        transform: translateY(-30px) scale(0.8); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0) scale(1); 
-    }
-}
-
-/* 4. حركة الدوران حول النفس (3D Y-Axis) */
-/* اللوجو سيدور دورة كاملة رشيقة كل 8 ثوانٍ */
-@keyframes logoRotate {
-    0%, 85% { 
-        transform: rotateY(0deg); 
-    }
-    92.5% { 
-        transform: rotateY(180deg); /* دوران نصف دورة */
-    }
-    100% { 
-        transform: rotateY(360deg); /* إكمال الدورة */
-    }
-}
-
-/* تأثير اللمعان الراقي الذي يمر فوق اللوجو */
-.navbar-brand {
-    position: relative;
-    overflow: hidden;
-}
-.navbar-brand::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -150%;
-    width: 50%; height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
-    transform: skewX(-30deg);
-    animation: logoShine 4s infinite linear;
-}
-@keyframes logoShine {
-    0% { left: -150%; }
-    20% { left: 250%; }
-    100% { left: 250%; }
-}
+        /* حركات اللوجو التي أضفناها */
+        .navbar-brand img {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: logoEntrance 1.2s ease-out forwards, logoRotate 8s infinite ease-in-out;
+            backface-visibility: hidden;
+        }
+        .navbar-brand img:hover {
+            transform: scale(1.15) !important;
+            filter: drop-shadow(0 5px 15px rgba(179, 91, 45, 0.4));
+            animation-play-state: paused;
+        }
+        @keyframes logoEntrance {
+            from { opacity: 0; transform: translateY(-30px) scale(0.8); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes logoRotate {
+            0%, 85% { transform: rotateY(0deg); }
+            92.5% { transform: rotateY(180deg); }
+            100% { transform: rotateY(360deg); }
+        }
+        .navbar-brand { position: relative; overflow: hidden; }
+        .navbar-brand::after {
+            content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-30deg); animation: logoShine 4s infinite linear;
+        }
+        @keyframes logoShine {
+            0% { left: -150%; } 20% { left: 250%; } 100% { left: 250%; }
+        }
     </style>
 </head>
+    
 <body>
 
     <a href="https://wa.me/971562933289" class="float-btn whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
