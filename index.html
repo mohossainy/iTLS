@@ -97,6 +97,24 @@
         @keyframes logoShine {
             0% { left: -150%; } 20% { left: 250%; } 100% { left: 250%; }
         }
+        /* تأثيرات إضافية للفخامة */
+.feature-box {
+    border: none;
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+}
+
+.hero h1 {
+    letter-spacing: 2px;
+    background: linear-gradient(to right, var(--main-orange), #ff9f6d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-orange {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
     </style>
 </head>
     
@@ -248,17 +266,27 @@
         </div>
     </section>
 
-    <section id="faq-seo" style="padding: 60px 20px; background: #fff;">
-        <div style="max-width: 1000px; margin: auto;">
-            <h3 class="section-title text-center" data-en="Frequently Asked Questions" data-ar="الأسئلة الشائعة">Frequently Asked Questions</h3>
-            <hr class="orange-line">
-            <div class="mt-4">
-                <p><strong>Q: Why choose iTLS for logistics in Dubai?</strong><br>
-                A: iTLS offers customized strategic solutions from the heart of Dubai.</p>
+   <section id="faq-seo" class="section-padding bg-white">
+    <div class="container">
+        <h3 class="section-title text-center" data-en="Frequently Asked Questions" data-ar="الأسئلة الشائعة">Frequently Asked Questions</h3>
+        <hr class="orange-line">
+        <div class="accordion shadow-sm rounded-4 overflow-hidden" id="faqAccordion">
+            <div class="accordion-item border-0 border-bottom">
+                <h2 class="accordion-header">
+                    <button class="accordion-button fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        <span data-en="Why iTLS Dubai?" data-ar="لماذا تختار iTLS دبي؟">Why iTLS Dubai?</span>
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body text-muted" data-en="We offer strategic integration between global trading and logistics." data-ar="نقدم تكاملاً استراتيجياً بين التجارة العالمية والحلول اللوجستية المبتكرة.">
+                        We offer strategic integration between global trading and logistics.
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-
+            </div>
+    </div>
+</section>
+    
     <section class="section-padding bg-white">
     <div class="container">
         <h3 class="section-title text-center" data-en="Comprehensive Logistics Solutions" data-ar="حلول لوجستية شاملة">Comprehensive Logistics Solutions</h3>
