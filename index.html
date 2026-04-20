@@ -66,6 +66,69 @@
 
         .detail-img { border-radius: 25px; width: 100%; box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
         footer { background: #fff; border-top: 5px solid var(--main-blue); padding: 50px 0; }
+        /* حركة اللوجو المتكاملة - iTLS Exclusive */
+
+/* 1. إعدادات اللوجو الأساسية */
+.navbar-brand img {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: 
+        logoEntrance 1.2s ease-out forwards, /* حركة الظهور عند الفتح */
+        logoRotate 8s infinite ease-in-out;   /* حركة الدوران الدوري كل 8 ثوانٍ */
+    backface-visibility: hidden;
+}
+
+/* 2. حركة التكبير والتميز عند مرور الماوس */
+.navbar-brand img:hover {
+    transform: scale(1.15) !important; /* يكبر اللوجو عند الإشارة إليه */
+    filter: drop-shadow(0 5px 15px rgba(179, 91, 45, 0.4)); /* إضافة توهج برتقالي خفيف */
+    animation-play-state: paused; /* إيقاف الدوران التلقائي عند التفاعل معه */
+}
+
+/* 3. تأثير الظهور من الأعلى عند تحميل الصفحة */
+@keyframes logoEntrance {
+    from { 
+        opacity: 0; 
+        transform: translateY(-30px) scale(0.8); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+/* 4. حركة الدوران حول النفس (3D Y-Axis) */
+/* اللوجو سيدور دورة كاملة رشيقة كل 8 ثوانٍ */
+@keyframes logoRotate {
+    0%, 85% { 
+        transform: rotateY(0deg); 
+    }
+    92.5% { 
+        transform: rotateY(180deg); /* دوران نصف دورة */
+    }
+    100% { 
+        transform: rotateY(360deg); /* إكمال الدورة */
+    }
+}
+
+/* تأثير اللمعان الراقي الذي يمر فوق اللوجو */
+.navbar-brand {
+    position: relative;
+    overflow: hidden;
+}
+.navbar-brand::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -150%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-30deg);
+    animation: logoShine 4s infinite linear;
+}
+@keyframes logoShine {
+    0% { left: -150%; }
+    20% { left: 250%; }
+    100% { left: 250%; }
+}
     </style>
 </head>
 <body>
