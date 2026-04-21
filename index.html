@@ -2,13 +2,12 @@
 <html lang="en" id="html-tag">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2RDJKM4FK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-M2RDJKM4FK');
-</script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M2RDJKM4FK');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iTLS Dubai | الشحن الدولي والخدمات اللوجستية | Air, Sea & Land Freight</title>
@@ -81,6 +80,16 @@
         }
         @keyframes logoEntrance { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes logoRotate { 0%, 85% { transform: rotateY(0deg); } 92.5% { transform: rotateY(180deg); } 100% { transform: rotateY(360deg); } }
+
+        /* Gallery Updated Styles */
+        .gallery-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; max-width: 1200px; margin: 0 auto; }
+        .gallery-item { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.4s ease; cursor: pointer; position: relative; }
+        .gallery-item img { width: 100%; height: 160px; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.15); z-index: 10; }
+        .gallery-item:hover img { transform: scale(1.15); }
+        .gallery-caption { padding: 8px; font-size: 12px; font-weight: bold; background: white; text-align: center; color: var(--main-blue); }
+        @media (max-width: 992px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 576px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head> 
     
@@ -132,13 +141,10 @@
                 <div class="col-lg-10">
                     <p class="fs-4 fw-bold text-dark mb-4" data-en="We don't just move cargo; we engineer supply chains for maximum speed and total transparency." data-ar="نحن لا ننقل البضائع فحسب؛ بل نهندس سلاسل الإمداد لتحقيق أقصى سرعة وشفافية كاملة.">We don't just move cargo; we engineer supply chains for maximum speed and total transparency.</p>
                     <div class="fs-5 text-muted lh-lg">
-                        <p data-en="iTLS is a specialized company in trading and logistics solutions..." data-ar="iTLS هي شركة متخصصة في تقديم حلول التجارة والخدمات اللوجستية، تجمع بين الخبرة العملية والشبكة العالمية لتقديم خدمات موثوقة.">iTLS is a specialized company in trading and logistics solutions...</p>
-                     <div class="fs-5 text-muted lh-lg">
-    <p data-en="iTLS is a specialized company in Freight Forwarding Services in Dubai International City, providing innovative Logistics Solutions for Dubai Businesses with a global reach." 
-       data-ar="تعتبر iTLS شركة متخصصة في خدمات الشحن الدولي في دبي (المدينة العالمية والقوز)، حيث تقدم حلولاً لوجستية مبتكرة للشركات في دبي مع انتشار عالمي واسع.">
-       iTLS is a specialized company in Freight Forwarding Services in Dubai International City...
-    </p>
-</div>   
+                        <p data-en="iTLS is a specialized company in Freight Forwarding Services in Dubai International City, providing innovative Logistics Solutions for Dubai Businesses with a global reach." 
+                           data-ar="تعتبر iTLS شركة متخصصة في خدمات الشحن الدولي في دبي (المدينة العالمية والقوز)، حيث تقدم حلولاً لوجستية مبتكرة للشركات في دبي مع انتشار عالمي واسع.">
+                           iTLS is a specialized company in Freight Forwarding Services in Dubai International City...
+                        </p>
                     </div>
                 </div>
             </div>
@@ -214,54 +220,46 @@
         </div>
     </section>
     
-<section id="gallery" style="padding: 50px 20px; text-align: center; background: #f9f9f9;">
-    <h2 style="color: #003366; font-weight: 800;" data-en="iTLS ACTION GALLERY" data-ar="معرض عمليات iTLS">iTLS ACTION GALLERY</h2>
-    <p class="mb-5" data-en="Our operational excellence in every shipment" data-ar="تميزنا التشغيلي في كل شحنة">Our operational excellence in every shipment</p>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto;">
+    <section id="gallery" style="padding: 60px 20px; text-align: center; background: #f9f9f9;">
+        <h2 style="color: #0D203D; font-weight: 800;" data-en="iTLS ACTION GALLERY" data-ar="معرض عمليات iTLS">iTLS ACTION GALLERY</h2>
+        <p class="mb-4" data-en="Our operational excellence in every shipment" data-ar="تميزنا التشغيلي في كل شحنة">Our operational excellence in every shipment</p>
+        <hr class="orange-line">
         
-        <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-            <img src="itls-dubai-warehouse-alquoz.jpg" style="width: 100%; height: 220px; object-fit: cover;">
-            <div style="padding: 12px; font-weight: bold;" data-en="Main Warehouse" data-ar="المستودع الرئيسي">Main Warehouse</div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="itls-dubai-warehouse-alquoz.jpg" alt="Warehouse">
+                <div class="gallery-caption" data-en="Main Warehouse" data-ar="المستودع الرئيسي">Main Warehouse</div>
+            </div>
+            <div class="gallery-item">
+                <img src="safe-packaging-services-dubai.jpg" alt="Safe Packaging">
+                <div class="gallery-caption" data-en="Safe Packaging" data-ar="التغليف الآمن">Safe Packaging</div>
+            </div>
+            <div class="gallery-item">
+                <img src="IMG-20221103-WA0006.jpg" alt="Sensitive">
+                <div class="gallery-caption" data-en="Sensitive Shipments" data-ar="شحنات حساسة">Sensitive Shipments</div>
+            </div>
+            <div class="gallery-item">
+                <img src="IMG-20260129-WA0035.jpg" alt="Cargo">
+                <div class="gallery-caption" data-en="Commercial Cargo" data-ar="شحنات تجارية">Commercial Cargo</div>
+            </div>
+            <div class="gallery-item">
+                <img src="IMG-20210310-WA0028.jpg" alt="Handling">
+                <div class="gallery-caption" data-en="Shipment Handling" data-ar="مناولة الشحنات">Shipment Handling</div>
+            </div>
+            <div class="gallery-item">
+                <img src="IMG-20210322-WA0040.jpg" alt="Commercial">
+                <div class="gallery-caption" data-en="Commercial Cargo" data-ar="شحنات تجارية">Commercial Cargo</div>
+            </div>
+            <div class="gallery-item">
+                <img src="IMG-20210425-WA0016.jpg" alt="Loading">
+                <div class="gallery-caption" data-en="Loading" data-ar="تحميل">Loading</div>
+            </div>
+            <div class="gallery-item">
+                <img src="IMG-20210906-WA0034.jpg" alt="Cargo 2">
+                <div class="gallery-caption" data-en="Commercial Cargo" data-ar="شحنات تجارية">Commercial Cargo</div>
+            </div>
         </div>
-
-        <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-            <img src="safe-packaging-services-dubai.jpg" style="width: 100%; height: 220px; object-fit: cover;">
-            <div style="padding: 12px; font-weight: bold;" data-en="Safe Packaging" data-ar="التغليف الآمن">Safe Packaging</div>
-        </div>
-
-        <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-            <img src="IMG-20221103-WA0006.jpg" style="width: 100%; height: 220px; object-fit: cover;">
-            <div style="padding: 12px; font-weight: bold;" data-en="sensitive shipments" data-ar="شحنات حساسة">sensitive shipments</div>
-        </div>
-
-        <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-            <img src="IMG-20260129-WA0035.jpg" style="width: 100%; height: 220px; object-fit: cover;">
-            <div style="padding: 12px; font-weight: bold;" data-en="Commercial Cargo" data-ar="شحنات تجارية">Commercial Cargo</div>
-        </div>
-
-        <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-            <img src="IMG-20210310-WA0028.jpg" style="width: 100%; height: 220px; object-fit: cover;">
-            <div style="padding: 12px; font-weight: bold;" data-en="Shipment Handling" data-ar="مناولة الشحنات">Shipment Handling</div>
-        </div>
-
-        <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-            <img src="IMG-20210322-WA0040.jpg" style="width: 100%; height: 220px; object-fit: cover;">
-            <div style="padding: 12px; font-weight: bold;" data-en="Commercial Cargo" data-ar="شحنات تجارية">Commercial Cargo</div>
-        </div>
-
-        <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-            <img src="IMG-20210425-WA0016.jpg" style="width: 100%; height: 220px; object-fit: cover;">
-            <div style="padding: 12px; font-weight: bold;" data-en="Loading" data-ar="تحميل">Loading</div>
-        </div>
-
-        <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-            <img src="IMG-20210906-WA0034.jpg" style="width: 100%; height: 220px; object-fit: cover;">
-            <div style="padding: 12px; font-weight: bold;" data-en="Commercial Cargo" data-ar="شحنات تجارية">Commercial Cargo</div>
-        </div>
-
-    </div>
-</section>    
+    </section>    
     
     <section id="contact" class="section-padding bg-light">
         <div class="container text-center">
@@ -304,7 +302,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
     </div>
 </section>
     
@@ -353,11 +351,11 @@
             <p class="text-muted fw-bold">© 2026 iTLS Dubai. Excellence in Trading & Logistics Solutions.</p>
         </div>
         <div class="container border-top pt-4">
-    <p class="text-muted" style="font-size: 11px; line-height: 2;">
-        <strong>الكلمات الأكثر بحثاً:</strong> 
-        شحن بري سريع، شحن بحري جزئي، أسعار شحن الكيلو، شركة نقل لوجستي، شحن للأفراد، شحن ملابس جملة، شحن إلكترونيات، شحن أجهزة كهربائية، شحن أدوات تجميل، شحن عطور دولي، شحن عينات، شحن آمن للسيارات، نقل معدات زراعية، شحن كتب، شحن سجاد وتحف، شحن إلى تركيا، شحن إلى أوروبا، شحن إلى أمريكا، شحن إلى الخليج، شحن بضائع من دبي، شركة شحن موثوقة، خدمات الشحن العاجل، تجميع الشحنات.
-    </p>
-</div>
+            <p class="text-muted" style="font-size: 11px; line-height: 2;">
+                <strong>الكلمات الأكثر بحثاً:</strong> 
+                شحن بري سريع، شحن بحري جزئي، أسعار شحن الكيلو، شركة نقل لوجستي، شحن للأفراد، شحن ملابس جملة، شحن إلكترونيات، شحن أجهزة كهربائية، شحن أدوات تجميل، شحن عطور دولي، شحن عينات، شحن آمن للسيارات، نقل معدات زراعية، شحن كتب، شحن سجاد وتحف، شحن إلى تركيا، شحن إلى أوروبا، شحن إلى أمريكا، شحن إلى الخليج، شحن بضائع من دبي، شركة شحن موثوقة، خدمات الشحن العاجل، تجميع الشحنات.
+            </p>
+        </div>
     </footer>
 
     <div class="modal fade" id="quoteModal" tabindex="-1">
