@@ -19,53 +19,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root { --main-blue: #0D203D; --main-orange: #B35B2D; --dark-overlay: rgba(13, 32, 61, 0.88); }
+        :root { --main-blue: #0D203D; --main-orange: #B35B2D; --dark-overlay: rgba(13, 32, 61, 0.9); }
         body { font-family: 'Segoe UI', Roboto, sans-serif; scroll-behavior: smooth; color: #333; overflow-x: hidden; }
         [lang="ar"] { direction: rtl; text-align: right; }
         
-        /* Navbar & Branding */
+        /* التعديل على اللوجو والنافبار */
         .navbar { background: white !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-bottom: 4px solid var(--main-blue); padding: 12px 0; }
-        .navbar-brand img { height: 90px; width: auto; filter: contrast(1.1); }
-        .nav-link { font-weight: 700; color: var(--main-blue) !important; margin: 0 10px; transition: 0.3s; }
+        .navbar-brand img { height: 110px; width: auto; filter: contrast(1.1); } /* تم تكبير اللوجو لزيادة الوضوح */
+        .nav-link { font-weight: 700; color: var(--main-blue) !important; margin: 0 10px; font-size: 1.1rem; }
         .nav-link:hover { color: var(--main-orange) !important; }
 
-        /* Hero Modern Style */
+        /* المظهر الحديث للهيرو */
         .hero { 
             background: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover; background-position: center; padding: 200px 0; color: white; text-align: center;
+            background-size: cover; background-position: center; padding: 220px 0; color: white; text-align: center;
         }
-        .hero h1 { font-size: 5.5rem; color: var(--main-orange); font-weight: 900; text-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.5rem; max-width: 800px; margin: 20px auto; opacity: 0.9; }
+        .hero h1 { font-size: 6rem; color: var(--main-orange); font-weight: 900; text-shadow: 0 5px 25px rgba(0,0,0,0.4); letter-spacing: -2px; }
 
-        /* Gallery System (6 per row + Zoom) */
-        .gallery-container { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; padding: 40px 15px; max-width: 1600px; margin: 0 auto; }
+        /* معرض الصور (6 في السطر مع تكبير) */
+        .gallery-container { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; padding: 50px 20px; max-width: 1600px; margin: 0 auto; }
         @media (max-width: 1200px) { .gallery-container { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) { .gallery-container { grid-template-columns: repeat(2, 1fr); } }
-        .gallery-item { height: 180px; border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.4s; border: 1px solid #eee; }
-        .gallery-item:hover { transform: scale(1.05); z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+        .gallery-item { height: 200px; border-radius: 15px; overflow: hidden; cursor: pointer; transition: 0.4s; border: 1px solid #ddd; }
+        .gallery-item:hover { transform: scale(1.08); z-index: 10; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
         
-        #lightbox { position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-        #lightbox img { max-width: 90%; max-height: 85%; border-radius: 10px; border: 4px solid white; }
+        #lightbox { position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+        #lightbox img { max-width: 90%; max-height: 85%; border-radius: 10px; border: 5px solid white; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
 
-        /* Section Styling */
-        .section-padding { padding: 100px 0; }
-        .section-title { font-weight: 900; color: var(--main-blue); text-align: center; margin-bottom: 50px; position: relative; }
-        .section-title::after { content: ''; display: block; width: 80px; height: 5px; background: var(--main-orange); margin: 20px auto; border-radius: 10px; }
+        /* أقسام الخدمات والتجارة */
+        .section-padding { padding: 120px 0; }
+        .section-title { font-weight: 900; color: var(--main-blue); text-align: center; margin-bottom: 60px; font-size: 2.5rem; }
+        .section-title::after { content: ''; display: block; width: 100px; height: 6px; background: var(--main-orange); margin: 25px auto; border-radius: 10px; }
         
-        /* Cards & Features */
-        .feature-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border-bottom: 5px solid transparent; transition: 0.3s; height: 100%; }
-        .feature-card:hover { border-bottom-color: var(--main-orange); transform: translateY(-10px); }
-        .feature-icon { font-size: 3rem; color: var(--main-orange); margin-bottom: 20px; }
+        .feature-card { background: white; padding: 45px; border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.06); border-top: 6px solid var(--main-blue); transition: 0.3s; height: 100%; }
+        .feature-card:hover { transform: translateY(-15px); border-top-color: var(--main-orange); }
+        .trading-section { background: #071222; color: white; padding: 80px; border-radius: 40px; margin-top: 50px; border: 1px solid #1a2a40; }
 
-        .trading-highlight { background: var(--main-blue); color: white; border-radius: 30px; padding: 60px; margin-top: 40px; }
-
-        /* Floating Buttons */
-        .btn-orange { background: var(--main-orange); color: white; font-weight: 800; border-radius: 50px; padding: 15px 35px; border: none; transition: 0.3s; }
-        .btn-orange:hover { background: #8a4522; color: white; transform: scale(1.05); }
-        .float-btn { position: fixed; right: 25px; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-decoration: none; }
-        .whatsapp-float { bottom: 25px; background: #25d366; font-size: 35px; }
-        .phone-float { bottom: 100px; background: var(--main-blue); font-size: 28px; }
+        /* الأزرار والعناصر العائمة */
+        .btn-orange { background: var(--main-orange); color: white; font-weight: 800; border-radius: 50px; padding: 18px 40px; border: none; transition: 0.3s; box-shadow: 0 10px 20px rgba(179,91,45,0.3); }
+        .btn-orange:hover { background: #8a4522; color: white; transform: translateY(-3px); }
+        .float-btn { position: fixed; right: 30px; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; z-index: 1000; box-shadow: 0 15px 30px rgba(0,0,0,0.3); transition: 0.3s; }
+        .whatsapp-float { bottom: 30px; background: #25d366; font-size: 38px; }
+        .phone-float { bottom: 110px; background: var(--main-blue); font-size: 28px; }
     </style>
 </head>
 
@@ -76,28 +72,27 @@
     <a href="tel:+971562933289" class="float-btn phone-float"><i class="fas fa-phone-alt"></i></a>
 
     <div class="bg-dark text-white py-2 d-none d-md-block">
-        <div class="container d-flex justify-content-between small">
-            <div><i class="fas fa-envelope me-2"></i> itls.dxb@gmail.com</div>
-            <div><i class="fas fa-map-marker-alt me-2"></i> Dubai, International City & Al Quoz</div>
+        <div class="container d-flex justify-content-between small fw-bold">
+            <div><i class="fas fa-envelope me-2 text-warning"></i> itls.dxb@gmail.com</div>
+            <div><i class="fas fa-map-marker-alt me-2 text-warning"></i> Dubai, International City & Al Quoz</div>
         </div>
     </div>
 
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="tls logo.png" alt="iTLS Dubai"></a>
+            <a class="navbar-brand" href="#"><img src="tls logo.png" alt="iTLS Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto text-center">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="#" data-en="HOME" data-ar="الرئيسية">HOME</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about" data-en="ABOUT" data-ar="من نحن">ABOUT</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services" data-en="SERVICES" data-ar="خدماتنا">SERVICES</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#trading" data-en="TRADING" data-ar="التجارة">TRADING</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#trading" data-en="TRADING" data-ar="قسم التجارة">TRADING</a></li>
                     <li class="nav-item"><a class="nav-link" href="#gallery" data-en="GALLERY" data-ar="المعرض">GALLERY</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact" data-en="CONTACT" data-ar="اتصل بنا">CONTACT</a></li>
                 </ul>
-                <div class="d-flex gap-2">
-                    <button class="btn btn-sm btn-outline-secondary" onclick="toggleLanguage()">العربية</button>
-                    <button class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#quoteModal" data-en="GET A QUOTE" data-ar="طلب سعر">GET A QUOTE</button>
+                <div class="d-flex gap-3 align-items-center">
+                    <button class="btn btn-sm btn-outline-dark rounded-pill px-3" onclick="toggleLanguage()">العربية</button>
+                    <button class="btn btn-orange shadow-sm" data-bs-toggle="modal" data-bs-target="#quoteModal" data-en="CONTACT US" data-ar="تواصل معنا">CONTACT US</button>
                 </div>
             </div>
         </div>
@@ -106,37 +101,37 @@
     <header class="hero">
         <div class="container">
             <h1 class="display-1">iTLS</h1>
-            <h2 class="h3 mb-4 fw-bold" data-en="INTEGRATED TRADING & LOGISTICS SOLUTIONS" data-ar="الحلول المتكاملة للتجارة والخدمات اللوجستية">INTEGRATED TRADING & LOGISTICS SOLUTIONS</h2>
-            <p data-en="Excellence in Air, Sea, and Land Freight from the heart of Dubai." data-ar="التميز في الشحن الجوي والبحري والبري من قلب دبي.">Excellence in Air, Sea, and Land Freight...</p>
-            <div class="mt-5">
-                <button class="btn btn-orange btn-lg px-5 shadow" data-bs-toggle="modal" data-bs-target="#quoteModal" data-en="START YOUR SHIPMENT" data-ar="ابدأ شحنتك الآن">START YOUR SHIPMENT</button>
+            <h2 class="h3 mb-5 fw-bold" data-en="INTEGRATED TRADING & LOGISTICS SOLUTIONS" data-ar="الحلول المتكاملة للتجارة والخدمات اللوجستية">INTEGRATED TRADING & LOGISTICS SOLUTIONS</h2>
+            <div class="d-flex justify-content-center gap-3">
+                <button class="btn btn-orange btn-lg px-5" data-bs-toggle="modal" data-bs-target="#quoteModal" data-en="GET A QUOTE" data-ar="طلب تسعيرة">GET A QUOTE</button>
+                <a href="#services" class="btn btn-outline-light btn-lg px-5" data-en="OUR SERVICES" data-ar="خدماتنا">OUR SERVICES</a>
             </div>
         </div>
     </header>
 
     <section id="services" class="section-padding bg-light">
         <div class="container">
-            <h3 class="section-title" data-en="CORE LOGISTICS" data-ar="الخدمات اللوجستية">CORE LOGISTICS</h3>
+            <h3 class="section-title" data-en="LOGISTICS EXCELLENCE" data-ar="التميز اللوجستي">LOGISTICS EXCELLENCE</h3>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="feature-card text-center">
-                        <i class="fas fa-plane-departure feature-icon"></i>
+                        <i class="fas fa-plane-departure mb-4 fa-4x text-primary"></i>
                         <h4 class="fw-bold" data-en="Air Freight" data-ar="الشحن الجوي">Air Freight</h4>
-                        <p class="text-muted" data-en="Global express solutions for time-sensitive cargo." data-ar="حلول سريعة عالمية للشحنات الحساسة للوقت.">Global express solutions...</p>
+                        <p class="text-muted" data-en="Global express solutions with door-to-door tracking." data-ar="حلول سريعة عالمية مع تتبع من الباب للباب.">Global express solutions...</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-card text-center">
-                        <i class="fas fa-ship feature-icon"></i>
+                        <i class="fas fa-ship mb-4 fa-4x text-primary"></i>
                         <h4 class="fw-bold" data-en="Sea Freight" data-ar="الشحن البحري">Sea Freight</h4>
-                        <p class="text-muted" data-en="FCL and LCL container services worldwide." data-ar="خدمات الحاويات الكاملة والمشتركة حول العالم.">FCL and LCL services...</p>
+                        <p class="text-muted" data-en="FCL & LCL services to all major global ports." data-ar="خدمات الحاويات الكاملة والمشتركة لكافة الموانئ.">FCL & LCL services...</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-card text-center">
-                        <i class="fas fa-truck-moving feature-icon"></i>
+                        <i class="fas fa-truck mb-4 fa-4x text-primary"></i>
                         <h4 class="fw-bold" data-en="Land Freight" data-ar="الشحن البري">Land Freight</h4>
-                        <p class="text-muted" data-en="Fast GCC and Middle East trucking network." data-ar="شبكة نقل بري سريعة لدول الخليج والشرق الأوسط.">Fast GCC network...</p>
+                        <p class="text-muted" data-en="Reliable GCC trucking network for heavy cargo." data-ar="شبكة نقل بري موثوقة للخليج للشحنات الثقيلة.">Reliable GCC network...</p>
                     </div>
                 </div>
             </div>
@@ -145,14 +140,18 @@
 
     <section id="trading" class="section-padding bg-white">
         <div class="container">
-            <div class="trading-highlight shadow-lg">
+            <div class="trading-section shadow-lg">
                 <div class="row align-items-center">
                     <div class="col-lg-7">
-                        <h3 class="fw-bold mb-4" data-en="Integrated Trading Hub" data-ar="مركز التجارة المتكامل">Integrated Trading Hub</h3>
-                        <p class="fs-5 lh-lg" data-en="Beyond logistics, iTLS acts as your global sourcing partner. We manage procurement, supplier negotiations, and quality control to ensure your goods reach Dubai with the highest standards and lowest costs." data-ar="بعيداً عن اللوجستيات، تعمل iTLS كشريك توريد عالمي لك. نحن ندير المشتريات، المفاوضات مع الموردين، وفحص الجودة لضمان وصول بضائعك إلى دبي بأعلى المعايير وأقل التكاليف.">Beyond logistics, iTLS acts as your partner...</p>
+                        <h3 class="fw-bold mb-4" data-en="INTEGRATED TRADING HUB" data-ar="مركز التجارة المتكامل">INTEGRATED TRADING HUB</h3>
+                        <p class="lead" data-en="We provide comprehensive supply chain solutions, acting as your procurement arm in Dubai. We source, negotiate, and verify quality for international businesses." data-ar="نقدم حلولاً شاملة لسلسلة التوريد، ونعمل كذراع مشتريات لك في دبي. نقوم بالتوريد، التفاوض، وفحص الجودة للشركات الدولية.">We provide comprehensive supply chain solutions...</p>
+                        <ul class="list-unstyled mt-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-orange me-2"></i> Global Sourcing</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-orange me-2"></i> Quality Verification</li>
+                        </ul>
                     </div>
                     <div class="col-lg-5 text-center">
-                        <i class="fas fa-handshake fa-10x text-warning opacity-25"></i>
+                        <i class="fas fa-globe-americas fa-10x opacity-25 text-orange"></i>
                     </div>
                 </div>
             </div>
@@ -161,71 +160,55 @@
 
     <section id="gallery" class="section-padding bg-light">
         <div class="container text-center">
-            <h3 class="section-title" data-en="OPERATIONS PREVIEW" data-ar="عرض العمليات">OPERATIONS PREVIEW</h3>
-        </div>
-        <div class="gallery-container">
-            <div class="gallery-item" onclick="openLightbox(this)"><img src="itls-dubai-warehouse-alquoz.jpg" alt="Warehouse"></div>
-            <div class="gallery-item" onclick="openLightbox(this)"><img src="safe-packaging-services-dubai.jpg" alt="Packaging"></div>
-            <div class="gallery-item" onclick="openLightbox(this)"><img src="IMG-20221103-WA0006.jpg" alt="Handling"></div>
-            <div class="gallery-item" onclick="openLightbox(this)"><img src="IMG-20260129-WA0035.jpg" alt="Cargo"></div>
-            <div class="gallery-item" onclick="openLightbox(this)"><img src="IMG-20210310-WA0028.jpg" alt="Shipping"></div>
-            <div class="gallery-item" onclick="openLightbox(this)"><img src="IMG-20210322-WA0040.jpg" alt="Dubai Logistics"></div>
-        </div>
-    </section>
-
-    <section class="section-padding bg-white">
-        <div class="container">
-            <h3 class="section-title" data-en="FREQUENT QUESTIONS" data-ar="الأسئلة الشائعة">FREQUENT QUESTIONS</h3>
-            <div class="accordion mx-auto" id="itlsFaq" style="max-width: 800px;">
-                <div class="accordion-item mb-3 border shadow-sm">
-                    <h2 class="accordion-header"><button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q1">Areas covered in UAE?</button></h2>
-                    <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#itlsFaq"><div class="accordion-body">We operate from Al Quoz and International City, serving all emirates and GCC countries.</div></div>
-                </div>
-                <div class="accordion-item mb-3 border shadow-sm">
-                    <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Do you handle sensitive goods?</button></h2>
-                    <div id="q2" class="accordion-collapse collapse" data-bs-parent="#itlsFaq"><div class="accordion-body">Yes, we have specialized packaging and handling for fragile, electronic, and high-value cargo.</div></div>
-                </div>
+            <h3 class="section-title" data-en="OPERATIONS GALLERY" data-ar="معرض العمليات">OPERATIONS GALLERY</h3>
+            <div class="gallery-container">
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="itls-dubai-warehouse-alquoz.jpg" alt="Warehouse"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="safe-packaging-services-dubai.jpg" alt="Packaging"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="IMG-20221103-WA0006.jpg" alt="Handling"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="IMG-20260129-WA0035.jpg" alt="Cargo"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="IMG-20210310-WA0028.jpg" alt="Shipping"></div>
+                <div class="gallery-item" onclick="openLightbox(this)"><img src="IMG-20210322-WA0040.jpg" alt="Logistics"></div>
             </div>
         </div>
     </section>
 
     <footer id="contact" class="bg-dark text-white pt-5 pb-3">
-        <div class="container text-center text-md-start">
-            <div class="row g-4">
-                <div class="col-md-4 text-center">
-                    <img src="tls logo.png" style="height: 70px;" class="mb-3">
-                    <p class="small text-muted">Global Sourcing & Freight Forwarding Excellence.</p>
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                <div class="col-md-4">
+                    <img src="tls logo.png" style="height: 80px;" class="mb-3">
+                    <p class="small text-muted">Trusted Global Freight Forwarding Partner in Dubai.</p>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="fw-bold text-orange mb-3">Contact Details</h5>
+                    <h5 class="fw-bold mb-3">Contact</h5>
                     <p class="small"><i class="fas fa-envelope me-2"></i> itls.dxb@gmail.com</p>
                     <p class="small"><i class="fas fa-phone me-2"></i> +971 56 293 3289</p>
-                    <p class="small"><i class="fas fa-map-marker-alt me-2"></i> Dubai International City, D04</p>
+                    <p class="small"><i class="fas fa-map-marker-alt me-2"></i> International City, D04, Dubai</p>
                 </div>
-                <div class="col-md-4">
-                    <h5 class="fw-bold text-orange mb-3">SEO Highlights</h5>
-                    <p class="small text-muted">شحن من دبي، شحن المدينة العالمية، شركة شحن القوز، شحن للسعودية، شحن تجاري، شحن للأفراد، ارخص شحن في دبي.</p>
+                <div class="col-md-4 text-md-end">
+                    <h5 class="fw-bold mb-3">SEO Hub</h5>
+                    <p class="small text-muted">شحن بري سريع، شحن بحري دبي، شركة شحن القوز، شحن للسعودية، شحن تجاري، ارخص اسعار شحن.</p>
                 </div>
             </div>
-            <hr class="mt-5 bg-secondary">
-            <p class="text-center small text-muted">© 2026 iTLS Dubai. Optimized for Performance & Trust.</p>
+            <hr class="bg-secondary">
+            <p class="text-center small text-muted mb-0">© 2026 iTLS Dubai. Optimized for High-Performance Trading.</p>
         </div>
     </footer>
 
     <div class="modal fade" id="quoteModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content border-0">
+            <div class="modal-content border-0 rounded-4 shadow-lg">
                 <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title fw-bold">Request a Quote</h5>
+                    <h5 class="modal-title fw-bold">Freight Inquiry Form</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body p-4">
-                    <form id="itls-google-form" class="row g-3">
-                        <div class="col-md-6"><label class="form-label">Full Name / الاسم</label><input type="text" name="name" class="form-control" required></div>
-                        <div class="col-md-6"><label class="form-label">Phone / الهاتف</label><input type="tel" name="phone" class="form-control" required></div>
-                        <div class="col-md-12"><label class="form-label">Email / البريد</label><input type="email" name="email" class="form-control"></div>
-                        <div class="col-12"><label class="form-label">Cargo Details / تفاصيل الشحنة</label><textarea name="cargo" class="form-control" rows="3" placeholder="Weight, Type, Destination..." required></textarea></div>
-                        <button type="submit" id="submit-btn" class="btn btn-orange w-100 py-3 mt-3 fw-bold">SUBMIT TO iTLS</button>
+                <div class="modal-body p-5">
+                    <form id="google-sheet-final-form" class="row g-3">
+                        <div class="col-md-6"><label class="form-label fw-bold">Name / الاسم</label><input type="text" name="name" class="form-control" required></div>
+                        <div class="col-md-6"><label class="form-label fw-bold">Phone / الهاتف</label><input type="tel" name="phone" class="form-control" required></div>
+                        <div class="col-md-12"><label class="form-label fw-bold">Email / البريد</label><input type="email" name="email" class="form-control" value="itls.dxb@gmail.com"></div>
+                        <div class="col-12"><label class="form-label fw-bold">Shipment Details / تفاصيل الشحنة</label><textarea name="cargo" class="form-control" rows="4" placeholder="Weight, Cargo Type, Destination..." required></textarea></div>
+                        <button type="submit" id="submit-btn" class="btn btn-orange w-100 py-3 mt-3 fw-bold">SUBMIT DATA & CHAT ON WHATSAPP</button>
                     </form>
                 </div>
             </div>
@@ -234,13 +217,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Lightbox Logic
         function openLightbox(el) {
             document.getElementById('lightbox-img').src = el.querySelector('img').src;
             document.getElementById('lightbox').style.display = 'flex';
         }
 
-        // Language Management
         function toggleLanguage() {
             const html = document.getElementById('html-tag');
             const newLang = html.getAttribute('lang') === 'en' ? 'ar' : 'en';
@@ -250,24 +231,23 @@
             });
         }
 
-        // Google Sheets Integration
+        // الرابط الصحيح لجدول بيانات جوجل وتوجيه الواتساب
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxx6sFMb7SyDE1EmZILjRfUAzUKjFNJNdgfFktf3IWOAQjIji-TWj2fPJwl8HwOLGKW1A/exec';
-        const form = document.getElementById('itls-google-form');
+        const form = document.getElementById('google-sheet-final-form');
         
         form.addEventListener('submit', e => {
             e.preventDefault();
             const btn = document.getElementById('submit-btn');
-            btn.disabled = true; btn.innerText = 'Processing...';
+            btn.disabled = true; btn.innerText = 'Syncing with Google Sheets...';
             
             fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
             .then(() => {
-                alert("Data secured! Redirecting to WhatsApp for instant chat.");
-                window.location.href = `https://wa.me/971562933289?text=Inquiry from ${form.name.value}. Details: ${form.cargo.value}`;
+                alert("Data Saved Successfully! Opening WhatsApp for direct contact.");
+                window.location.href = `https://wa.me/971562933289?text=Hello iTLS, I am ${form.name.value}. I submitted a quote request for: ${form.cargo.value}`;
             })
             .catch(err => {
-                console.error('Error!', err.message);
+                alert("Technical Error. Please message us directly.");
                 btn.disabled = false;
-                btn.innerText = 'Error - Try Again';
             });
         });
     </script>
